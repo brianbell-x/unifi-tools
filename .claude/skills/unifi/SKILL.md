@@ -253,3 +253,21 @@ unifi_bulk_delete_vouchers(voucher_filter="name.eq('Event Pass')")
 | Vouchers | [vouchers.md](references/vouchers.md) | [schema-vouchers.json](references/schema-vouchers.json) |
 | Traffic Lists | [traffic-lists.md](references/traffic-lists.md) | [schema-traffic-lists.json](references/schema-traffic-lists.json) |
 | WANs, VPNs, RADIUS, DPI, Tags | [supporting.md](references/supporting.md) | -- |
+
+## UniFi Help Articles (help.ui.com)
+
+387 articles from help.ui.com across 11 sections. Read the per-section file for full title/URL listings, or use `WebFetch` on any article URL for detailed guidance.
+
+| Section | Articles | File | Covers |
+|---------|----------|------|--------|
+| Getting Started with UniFi | 20 | [help-getting-started-unifi.md](references/help-getting-started-unifi.md) | Setup, adoption, cloud architecture, API, roles, MFA, factory reset |
+| Features & Configuration | 138 | [help-features-config.md](references/help-features-config.md) | WiFi, VLANs, firewall, NAT, IDS/IPS, QoS, Protect, Talk, Connect, Access, Drive, switches, HA |
+| References & Specifications | 39 | [help-references-specs.md](references/help-references-specs.md) | PoE, SFP, DFS, LED indicators, antenna patterns, troubleshooting, Protect setup, CyberSecure |
+| Self-Hosted Network Server | 8 | [help-self-hosted.md](references/help-self-hosted.md) | Linux/Windows install, updates, DB repair, tuning, system.properties |
+| Fabrics, Identity & RBAC | 6 | [help-fabrics-identity-rbac.md](references/help-fabrics-identity-rbac.md) | Fabrics setup, IdP binding, Entra/AD/LDAP/Google integration, roles |
+| UniFi Endpoint | 6 | [help-unifi-endpoint.md](references/help-unifi-endpoint.md) | ZTNA, endpoint agent, One-Click WiFi/VPN troubleshooting, MTU config |
+| Advanced | 15 | [help-advanced.md](references/help-advanced.md) | SSH keys, L3 routing, 802.1x, RSSI, DHCP, ZTP, LAG, broadcast mgmt |
+| VPN Configurations | 11 | [help-vpn.md](references/help-vpn.md) | WireGuard, OpenVPN, IPsec, L2TP, Teleport, Site Magic SD-WAN |
+| Getting Started (Access, Talk, Connect) | 31 | [help-getting-started-access-talk-connect.md](references/help-getting-started-access-talk-connect.md) | Access hubs/readers/locks/wiring, Talk setup/calls, gate/elevator config |
+| UID Enterprise | 103 | [help-uid-enterprise.md](references/help-uid-enterprise.md) | Admin guide, SSO apps, AD/LDAP, MDM, policies, MFA, VPN, legacy UI |
+| Additional Resources | 10 | [help-additional-resources.md](references/help-additional-resources.md) | Early access, SIEM, hotspot API, NDAA compliance, E-Rate, ESD |
