@@ -1,0 +1,2004 @@
+{
+  "domain": "wifi",
+  "paths": {
+    "/v1/sites/{siteId}/wifi/broadcasts/{wifiBroadcastId}": {
+      "get": {
+        "tags": [
+          "WiFi Broadcasts"
+        ],
+        "summary": "Get Wifi Broadcast Details",
+        "description": "Retrieve detailed information about a specific Wifi.",
+        "operationId": "getWifiBroadcastDetails",
+        "parameters": [
+          {
+            "name": "wifiBroadcastId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Wifi broadcast details"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "WiFi Broadcasts"
+        ],
+        "summary": "Update Wifi Broadcast",
+        "description": "Update an existing Wifi Broadcast on the specified site.",
+        "operationId": "updateWifiBroadcast",
+        "parameters": [
+          {
+            "name": "wifiBroadcastId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Wifi broadcast create or update"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Wifi broadcast details"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "WiFi Broadcasts"
+        ],
+        "summary": "Delete Wifi Broadcast",
+        "description": "Delete an existing Wifi Broadcast from the specified site.",
+        "operationId": "deleteWifiBroadcast",
+        "parameters": [
+          {
+            "name": "wifiBroadcastId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/wifi/broadcasts": {
+      "get": {
+        "tags": [
+          "WiFi Broadcasts"
+        ],
+        "summary": "List Wifi Broadcasts",
+        "description": "Retrieve a paginated list of all Wifi Broadcasts on a site.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`type`|`STRING`|`eq` `ne` `in` `notIn`|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`enabled`|`BOOLEAN`|`eq` `ne`|\n|`name`|`STRING`|`eq` `ne` `in` `notIn` `like`|\n|`broadcastingFrequenciesGHz`|`SET(DECIMAL)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`metadata.origin`|`STRING`|`eq` `ne` `in` `notIn`|\n|`network.type`|`STRING`|`eq` `ne` `in` `notIn` `isNull` `isNotNull`|\n|`network.networkId`|`UUID`|`eq` `ne` `in` `notIn`|\n|`securityConfiguration.type`|`STRING`|`eq` `ne` `in` `notIn`|\n|`broadcastingDeviceFilter.type`|`STRING`|`eq` `ne` `in` `notIn` `isNull` `isNotNull`|\n|`broadcastingDeviceFilter.deviceIds`|`SET(UUID)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`broadcastingDeviceFilter.deviceTagIds`|`SET(UUID)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`hotspotConfiguration.type`|`STRING`|`eq` `ne` `in` `notIn`|\n</details>",
+        "operationId": "getWifiBroadcastPage",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "maximum": 200,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntegrationWifiBroadcastPageDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "WiFi Broadcasts"
+        ],
+        "summary": "Create Wifi Broadcast",
+        "description": "Create a new Wifi Broadcast on the specified site.",
+        "operationId": "createWifiBroadcast",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Wifi broadcast create or update"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Wifi broadcast details"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Blackout schedule configuration per day": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "ALL_DAY": "#/components/schemas/IntegrationWifiBlackoutScheduleConfigurationPerAllDayDto",
+            "TIME_RANGE": "#/components/schemas/IntegrationWifiBlackoutScheduleConfigurationPerDayWithTimeRangeDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "day": {
+            "type": "string",
+            "enum": [
+              "SUN",
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI",
+              "SAT"
+            ]
+          }
+        },
+        "required": [
+          "day",
+          "type"
+        ]
+      },
+      "Broadcasting device filter": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DEVICES": "#/components/schemas/IntegrationWifiDevicesFilterDto",
+            "DEVICE_TAGS": "#/components/schemas/IntegrationWifiDeviceTagsFilterDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Derived entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User defined or derived entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          }
+        ]
+      },
+      "Entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "Integration blackout schedule configuration": {
+        "properties": {
+          "days": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Blackout schedule configuration per day"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "days"
+        ]
+      },
+      "IntegrationDerivedSiteToSiteTunnelMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Site-to-site VPN tunnel metadata"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "SDWAN"
+                ]
+              }
+            }
+          }
+        ],
+        "required": [
+          "source"
+        ]
+      },
+      "IntegrationIotOptimizedWifiBroadcastCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi broadcast create or update"
+          }
+        ],
+        "required": [
+          "clientIsolationEnabled",
+          "enabled",
+          "hideName",
+          "multicastToUnicastConversionEnabled",
+          "name",
+          "securityConfiguration",
+          "uapsdEnabled"
+        ]
+      },
+      "IntegrationIotOptimizedWifiBroadcastDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi broadcast details"
+          }
+        ],
+        "required": [
+          "clientIsolationEnabled",
+          "enabled",
+          "hideName",
+          "id",
+          "metadata",
+          "multicastToUnicastConversionEnabled",
+          "name",
+          "securityConfiguration",
+          "uapsdEnabled"
+        ]
+      },
+      "IntegrationIotOptimizedWifiBroadcastOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi broadcast overview"
+          }
+        ],
+        "required": [
+          "enabled",
+          "id",
+          "metadata",
+          "name",
+          "securityConfiguration"
+        ]
+      },
+      "IntegrationStandardWifiBroadcastCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi broadcast create or update"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "broadcastingFrequenciesGHz": {
+                "type": "array",
+                "example": [
+                  2.4,
+                  5
+                ],
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "2.4",
+                    "5",
+                    "6"
+                  ]
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "hotspotConfiguration": {
+                "$ref": "#/components/schemas/Wifi hotspot configuration"
+              },
+              "mloEnabled": {
+                "type": "boolean"
+              },
+              "bandSteeringEnabled": {
+                "type": "boolean"
+              },
+              "arpProxyEnabled": {
+                "type": "boolean"
+              },
+              "bssTransitionEnabled": {
+                "type": "boolean"
+              },
+              "dtimPeriodByFrequencyGHzOverride": {
+                "$ref": "#/components/schemas/IntegrationWifiDtimPeriodConfigurationDto"
+              }
+            }
+          }
+        ],
+        "required": [
+          "arpProxyEnabled",
+          "broadcastingFrequenciesGHz",
+          "bssTransitionEnabled",
+          "clientIsolationEnabled",
+          "enabled",
+          "hideName",
+          "multicastToUnicastConversionEnabled",
+          "name",
+          "securityConfiguration",
+          "uapsdEnabled"
+        ]
+      },
+      "IntegrationStandardWifiBroadcastDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi broadcast details"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "broadcastingFrequenciesGHz": {
+                "type": "array",
+                "example": [
+                  2.4,
+                  5
+                ],
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "2.4",
+                    "5",
+                    "6"
+                  ]
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "hotspotConfiguration": {
+                "$ref": "#/components/schemas/Wifi hotspot configuration"
+              },
+              "mloEnabled": {
+                "type": "boolean"
+              },
+              "bandSteeringEnabled": {
+                "type": "boolean"
+              },
+              "arpProxyEnabled": {
+                "type": "boolean"
+              },
+              "bssTransitionEnabled": {
+                "type": "boolean"
+              },
+              "dtimPeriodByFrequencyGHzOverride": {
+                "$ref": "#/components/schemas/IntegrationWifiDtimPeriodConfigurationDto"
+              }
+            }
+          }
+        ],
+        "required": [
+          "arpProxyEnabled",
+          "broadcastingFrequenciesGHz",
+          "bssTransitionEnabled",
+          "clientIsolationEnabled",
+          "enabled",
+          "hideName",
+          "id",
+          "metadata",
+          "multicastToUnicastConversionEnabled",
+          "name",
+          "securityConfiguration",
+          "uapsdEnabled"
+        ]
+      },
+      "IntegrationStandardWifiBroadcastOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi broadcast overview"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "broadcastingFrequenciesGHz": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "2.4",
+                    "5",
+                    "6"
+                  ]
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "hotspotConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiHotspotConfigurationOverviewDto"
+              }
+            }
+          }
+        ],
+        "required": [
+          "broadcastingFrequenciesGHz",
+          "enabled",
+          "id",
+          "metadata",
+          "name",
+          "securityConfiguration"
+        ]
+      },
+      "IntegrationWifiBasicDataRateConfigurationDto": {
+        "properties": {
+          "5": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              "6000",
+              "9000",
+              "12000",
+              "24000"
+            ],
+            "example": 6000
+          },
+          "2.4": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              "1000",
+              "2000",
+              "5500",
+              "6000",
+              "9000",
+              "11000",
+              "12000",
+              "24000"
+            ],
+            "example": 2000
+          }
+        },
+        "required": [
+          "2.4",
+          "5"
+        ]
+      },
+      "IntegrationWifiBlackoutScheduleConfigurationPerAllDayDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Blackout schedule configuration per day"
+          }
+        ],
+        "required": [
+          "day"
+        ]
+      },
+      "IntegrationWifiBlackoutScheduleConfigurationPerDayWithTimeRangeDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Blackout schedule configuration per day"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "timeRanges": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IntegrationWifiBlackoutScheduleConfigurationTimeRangeDto"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "day",
+          "timeRanges"
+        ]
+      },
+      "IntegrationWifiBlackoutScheduleConfigurationTimeRangeDto": {
+        "properties": {
+          "startTime": {
+            "type": "string",
+            "format": "partial-time",
+            "description": "Start time in 24-hour format (HH:mm)"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "partial-time",
+            "description": "End time in 24-hour format (HH:mm)"
+          }
+        },
+        "required": [
+          "endTime",
+          "startTime"
+        ]
+      },
+      "IntegrationWifiBroadcastPageDto": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Wifi broadcast overview"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      },
+      "IntegrationWifiCaptivePortalConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi hotspot configuration"
+          }
+        ]
+      },
+      "IntegrationWifiClientFilteringPolicyDto": {
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "ALLOW",
+              "BLOCK"
+            ]
+          },
+          "macAddressFilter": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 512,
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "action",
+          "macAddressFilter"
+        ]
+      },
+      "IntegrationWifiDerivedNasIdDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi Radius NAS ID configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "DEVICE_MAC_ADDRESS",
+                  "DEVICE_NAME",
+                  "SITE_NAME",
+                  "BSSID"
+                ]
+              }
+            }
+          }
+        ],
+        "required": [
+          "source"
+        ]
+      },
+      "IntegrationWifiDeviceTagsFilterDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Broadcasting device filter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "deviceTagIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        ],
+        "required": [
+          "deviceTagIds"
+        ]
+      },
+      "IntegrationWifiDevicesFilterDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Broadcasting device filter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "deviceIds": {
+                "type": "array",
+                "description": "List of Access Point capable device IDs to which the WiFi broadcast applies.",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        ],
+        "required": [
+          "deviceIds"
+        ]
+      },
+      "IntegrationWifiDtimPeriodConfigurationDto": {
+        "properties": {
+          "5": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 255,
+            "minimum": 1
+          },
+          "6": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 255,
+            "minimum": 1
+          },
+          "2.4": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 255,
+            "minimum": 1
+          }
+        },
+        "required": [
+          "2.4",
+          "5",
+          "6"
+        ]
+      },
+      "IntegrationWifiEnterpriseRadiusConfigurationDto": {
+        "properties": {
+          "profileId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nasId": {
+            "$ref": "#/components/schemas/Wifi Radius NAS ID configuration"
+          },
+          "macAuthenticationConfiguration": {
+            "$ref": "#/components/schemas/IntegrationWifiRadiusMacAuthenticationConfigurationDto"
+          }
+        },
+        "required": [
+          "nasId",
+          "profileId"
+        ]
+      },
+      "IntegrationWifiHotspotConfigurationOverviewDto": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "CAPTIVE_PORTAL",
+              "PASSPOINT"
+            ]
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "IntegrationWifiMdnsProxyAllowPolicyDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/mDNS proxy policy"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "serviceFilter": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/mDNS service"
+                },
+                "minItems": 1
+              },
+              "bridgingNetworkIds": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        ]
+      },
+      "IntegrationWifiMdnsProxyAutoConfigurationDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/mDNS filtering configuration"
+          }
+        ]
+      },
+      "IntegrationWifiMdnsProxyBlockPolicyDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/mDNS proxy policy"
+          }
+        ]
+      },
+      "IntegrationWifiMdnsProxyCustomConfigurationDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/mDNS filtering configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "policies": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/mDNS proxy policy"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "policies"
+        ]
+      },
+      "IntegrationWifiMdnsProxyCustomServiceDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/mDNS service"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "typeDomain": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "required": [
+          "name",
+          "typeDomain"
+        ]
+      },
+      "IntegrationWifiMdnsProxyPredefinedServiceDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/mDNS service"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "enum": [
+                  "AMAZON_DEVICES",
+                  "ANDROID_TV_REMOTE",
+                  "APPLE_AIR_DROP",
+                  "APPLE_AIR_PLAY",
+                  "APPLE_FILE_SHARING",
+                  "APPLE_ICHAT",
+                  "APPLE_ITUNES",
+                  "AQARA",
+                  "BOSE",
+                  "DNS_SERVICE_DISCOVERY",
+                  "FTP_SERVERS",
+                  "GOOGLE_CHROMECAST",
+                  "HOMEKIT",
+                  "MATTER_NETWORK",
+                  "PHILIPS_HUE",
+                  "PRINTERS",
+                  "ROKU",
+                  "SCANNERS",
+                  "SONOS",
+                  "SPOTIFY_CONNECT",
+                  "SSH_SERVERS",
+                  "TIME_CAPSULE",
+                  "WEB_SERVERS",
+                  "WINDOWS_FILE_SHARING_SAMBA"
+                ]
+              }
+            }
+          }
+        ],
+        "required": [
+          "name"
+        ]
+      },
+      "IntegrationWifiMulticastFilteringAllowPolicyDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Multicast filtering policy"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "sourceMacAddressFilter": {
+                "type": "array",
+                "description": "List of multicast source MAC addresses allowed. Multicast traffic from gateways is always allowed.",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 256,
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        ],
+        "required": [
+          "sourceMacAddressFilter"
+        ]
+      },
+      "IntegrationWifiMulticastFilteringBlockPolicyDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Multicast filtering policy"
+          }
+        ]
+      },
+      "IntegrationWifiNativeNetworkDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi network reference"
+          }
+        ]
+      },
+      "IntegrationWifiNonEnterpriseRadiusConfigurationDto": {
+        "properties": {
+          "profileId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nasId": {
+            "$ref": "#/components/schemas/Wifi Radius NAS ID configuration"
+          },
+          "macAuthenticationConfiguration": {
+            "$ref": "#/components/schemas/IntegrationWifiRadiusMacAuthenticationConfigurationDto"
+          }
+        },
+        "required": [
+          "macAuthenticationConfiguration",
+          "nasId",
+          "profileId"
+        ]
+      },
+      "IntegrationWifiOpenSecurityConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "radiusConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiNonEnterpriseRadiusConfigurationDto"
+              }
+            }
+          }
+        ]
+      },
+      "IntegrationWifiOpenSecurityConfigurationOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration overview"
+          }
+        ]
+      },
+      "IntegrationWifiPasspointConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi hotspot configuration"
+          }
+        ]
+      },
+      "IntegrationWifiPresharedKeyDto": {
+        "properties": {
+          "network": {
+            "$ref": "#/components/schemas/Wifi network reference"
+          },
+          "passphrase": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "network",
+          "passphrase"
+        ]
+      },
+      "IntegrationWifiRadiusMacAuthenticationConfigurationDto": {
+        "properties": {
+          "macAddressFormat": {
+            "type": "string",
+            "enum": [
+              "UPPERCASE_NOT_SEPARATED",
+              "UPPERCASE_DASH_SEPARATED",
+              "UPPERCASE_COLON_SEPARATED",
+              "LOWERCASE_NOT_SEPARATED",
+              "LOWERCASE_COLON_SEPARATED",
+              "LOWERCASE_DASH_SEPARATED"
+            ]
+          }
+        },
+        "required": [
+          "macAddressFormat"
+        ]
+      },
+      "IntegrationWifiSaeConfigurationDto": {
+        "properties": {
+          "anticloggingThresholdSeconds": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 60,
+            "minimum": 1
+          },
+          "syncTimeSeconds": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 60,
+            "minimum": 1
+          }
+        },
+        "required": [
+          "anticloggingThresholdSeconds",
+          "syncTimeSeconds"
+        ]
+      },
+      "IntegrationWifiSpecificNetworkDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi network reference"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "networkId": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          }
+        ],
+        "required": [
+          "networkId"
+        ]
+      },
+      "IntegrationWifiUserDefinedNasIdDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi Radius NAS ID configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "required": [
+          "value"
+        ]
+      },
+      "IntegrationWifiWpa2EnterpriseSecurityConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "groupRekeyIntervalSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Group rekey interval in seconds. Sets how often connected device groups are assigned a new key. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "maximum": 86400,
+                "minimum": 1
+              },
+              "fastRoamingEnabled": {
+                "type": "boolean",
+                "description": "Fast roaming enabled flag. This feature is not available for IoT configuration."
+              },
+              "radiusConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiEnterpriseRadiusConfigurationDto"
+              },
+              "coaEnabled": {
+                "type": "boolean",
+                "description": "Indicates whether Change of Authorization (COA) is enabled"
+              },
+              "pmfMode": {
+                "type": "string",
+                "description": "Protected Management Frames mode. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "enum": [
+                  "REQUIRED",
+                  "OPTIONAL"
+                ]
+              }
+            }
+          }
+        ],
+        "required": [
+          "coaEnabled",
+          "radiusConfiguration"
+        ]
+      },
+      "IntegrationWifiWpa2EnterpriseSecurityConfigurationOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration overview"
+          }
+        ]
+      },
+      "IntegrationWifiWpa2PersonalSecurityConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "groupRekeyIntervalSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Group rekey interval in seconds. Sets how often connected device groups are assigned a new key. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "maximum": 86400,
+                "minimum": 1
+              },
+              "fastRoamingEnabled": {
+                "type": "boolean",
+                "description": "Fast roaming enabled flag. This feature is not available for IoT configuration."
+              },
+              "radiusConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiNonEnterpriseRadiusConfigurationDto"
+              },
+              "passphrase": {
+                "type": "string",
+                "maxLength": 63,
+                "minLength": 8
+              },
+              "presharedKeys": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IntegrationWifiPresharedKeyDto"
+                },
+                "minItems": 1
+              },
+              "pmfMode": {
+                "type": "string",
+                "description": "Protected Management Frames mode. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "enum": [
+                  "REQUIRED",
+                  "OPTIONAL"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "IntegrationWifiWpa2PersonalSecurityConfigurationOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration overview"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "presharedKeyNetworkIds": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Wifi network reference"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "IntegrationWifiWpa2Wpa3EnterpriseSecurityConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "groupRekeyIntervalSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Group rekey interval in seconds. Sets how often connected device groups are assigned a new key. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "maximum": 86400,
+                "minimum": 1
+              },
+              "fastRoamingEnabled": {
+                "type": "boolean",
+                "description": "Fast roaming enabled flag. This feature is not available for IoT configuration."
+              },
+              "radiusConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiEnterpriseRadiusConfigurationDto"
+              },
+              "coaEnabled": {
+                "type": "boolean",
+                "description": "Indicates whether Change of Authorization (COA) is enabled"
+              },
+              "pmfMode": {
+                "type": "string",
+                "description": "Protected Management Frames mode. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "enum": [
+                  "REQUIRED",
+                  "OPTIONAL"
+                ]
+              },
+              "wpa3FastRoamingEnabled": {
+                "type": "boolean",
+                "description": "WPA3 fast roaming can be enabled only if the default fast roaming is enabled"
+              }
+            }
+          }
+        ],
+        "required": [
+          "coaEnabled",
+          "pmfMode",
+          "radiusConfiguration",
+          "wpa3FastRoamingEnabled"
+        ]
+      },
+      "IntegrationWifiWpa2Wpa3EnterpriseSecurityConfigurationOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration overview"
+          }
+        ]
+      },
+      "IntegrationWifiWpa2Wpa3PersonalSecurityConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "groupRekeyIntervalSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Group rekey interval in seconds. Sets how often connected device groups are assigned a new key. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "maximum": 86400,
+                "minimum": 1
+              },
+              "fastRoamingEnabled": {
+                "type": "boolean",
+                "description": "Fast roaming enabled flag. This feature is not available for IoT configuration."
+              },
+              "radiusConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiNonEnterpriseRadiusConfigurationDto"
+              },
+              "passphrase": {
+                "type": "string",
+                "maxLength": 63,
+                "minLength": 8
+              },
+              "pmfMode": {
+                "type": "string",
+                "description": "Protected Management Frames mode. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "enum": [
+                  "REQUIRED",
+                  "OPTIONAL"
+                ]
+              },
+              "saeConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiSaeConfigurationDto",
+                "description": "Configuration for SAE (Simultaneous Authentication of Equals)."
+              },
+              "wpa3FastRoamingEnabled": {
+                "type": "boolean",
+                "description": "WPA3 fast roaming can be enabled only if the default fast roaming is enabled"
+              }
+            }
+          }
+        ],
+        "required": [
+          "passphrase",
+          "pmfMode",
+          "saeConfiguration",
+          "wpa3FastRoamingEnabled"
+        ]
+      },
+      "IntegrationWifiWpa2Wpa3PersonalSecurityConfigurationOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration overview"
+          }
+        ]
+      },
+      "IntegrationWifiWpa3EnterpriseSecurityConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "groupRekeyIntervalSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Group rekey interval in seconds. Sets how often connected device groups are assigned a new key. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "maximum": 86400,
+                "minimum": 1
+              },
+              "fastRoamingEnabled": {
+                "type": "boolean",
+                "description": "Fast roaming enabled flag. This feature is not available for IoT configuration."
+              },
+              "radiusConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiEnterpriseRadiusConfigurationDto"
+              },
+              "coaEnabled": {
+                "type": "boolean",
+                "description": "Indicates whether Change of Authorization (COA) is enabled"
+              },
+              "securityMode": {
+                "type": "string",
+                "enum": [
+                  "DEFAULT",
+                  "HIGH_SECURITY_192_BIT"
+                ]
+              }
+            }
+          }
+        ],
+        "required": [
+          "coaEnabled",
+          "radiusConfiguration",
+          "securityMode"
+        ]
+      },
+      "IntegrationWifiWpa3EnterpriseSecurityConfigurationOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration overview"
+          }
+        ]
+      },
+      "IntegrationWifiWpa3PersonalSecurityConfigurationDetailDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "groupRekeyIntervalSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Group rekey interval in seconds. Sets how often connected device groups are assigned a new key. If null, then it is disabled. This feature is not available for IoT configuration.",
+                "maximum": 86400,
+                "minimum": 1
+              },
+              "fastRoamingEnabled": {
+                "type": "boolean",
+                "description": "Fast roaming enabled flag. This feature is not available for IoT configuration."
+              },
+              "radiusConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiNonEnterpriseRadiusConfigurationDto"
+              },
+              "passphrase": {
+                "type": "string",
+                "maxLength": 63,
+                "minLength": 8
+              },
+              "saeConfiguration": {
+                "$ref": "#/components/schemas/IntegrationWifiSaeConfigurationDto",
+                "description": "Configuration for SAE (Simultaneous Authentication of Equals)."
+              }
+            }
+          }
+        ],
+        "required": [
+          "passphrase",
+          "saeConfiguration"
+        ]
+      },
+      "IntegrationWifiWpa3PersonalSecurityConfigurationOverviewDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Wifi security configuration overview"
+          }
+        ]
+      },
+      "Multicast filtering policy": {
+        "discriminator": {
+          "propertyName": "action",
+          "mapping": {
+            "ALLOW": "#/components/schemas/IntegrationWifiMulticastFilteringAllowPolicyDto",
+            "BLOCK": "#/components/schemas/IntegrationWifiMulticastFilteringBlockPolicyDto"
+          }
+        },
+        "properties": {
+          "action": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      },
+      "Orchestrated entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          }
+        ]
+      },
+      "Site-to-site VPN tunnel metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/IntegrationDerivedSiteToSiteTunnelMetadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "System defined entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "configurable": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "User defined entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User defined or derived entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/Site-to-site VPN tunnel metadata"
+          }
+        ]
+      },
+      "User defined or derived entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or derived or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or system defined entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or system defined or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "Wifi Radius NAS ID configuration": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DERIVED": "#/components/schemas/IntegrationWifiDerivedNasIdDto",
+            "USER_DEFINED": "#/components/schemas/IntegrationWifiUserDefinedNasIdDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Wifi broadcast create or update": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "STANDARD": "#/components/schemas/IntegrationStandardWifiBroadcastCreateUpdateDto",
+            "IOT_OPTIMIZED": "#/components/schemas/IntegrationIotOptimizedWifiBroadcastCreateUpdateDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "network": {
+            "$ref": "#/components/schemas/Wifi network reference"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "securityConfiguration": {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          "broadcastingDeviceFilter": {
+            "$ref": "#/components/schemas/Broadcasting device filter",
+            "description": "Defines the custom scope of devices that will broadcast this WiFi network. If null, the WiFi network will be broadcast by all Access Point capable devices."
+          },
+          "mdnsProxyConfiguration": {
+            "$ref": "#/components/schemas/mDNS filtering configuration"
+          },
+          "multicastFilteringPolicy": {
+            "$ref": "#/components/schemas/Multicast filtering policy"
+          },
+          "multicastToUnicastConversionEnabled": {
+            "type": "boolean"
+          },
+          "clientIsolationEnabled": {
+            "type": "boolean"
+          },
+          "hideName": {
+            "type": "boolean"
+          },
+          "uapsdEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether Unscheduled Automatic Power Save Delivery (U-APSD) is enabled"
+          },
+          "basicDataRateKbpsByFrequencyGHz": {
+            "$ref": "#/components/schemas/IntegrationWifiBasicDataRateConfigurationDto"
+          },
+          "clientFilteringPolicy": {
+            "$ref": "#/components/schemas/IntegrationWifiClientFilteringPolicyDto",
+            "description": "Client connection filtering policy. Allow/restrict access to the WiFi network based on client device MAC addresses."
+          },
+          "blackoutScheduleConfiguration": {
+            "$ref": "#/components/schemas/Integration blackout schedule configuration"
+          }
+        },
+        "required": [
+          "clientIsolationEnabled",
+          "enabled",
+          "hideName",
+          "multicastToUnicastConversionEnabled",
+          "name",
+          "securityConfiguration",
+          "type",
+          "uapsdEnabled"
+        ]
+      },
+      "Wifi broadcast details": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "STANDARD": "#/components/schemas/IntegrationStandardWifiBroadcastDetailDto",
+            "IOT_OPTIMIZED": "#/components/schemas/IntegrationIotOptimizedWifiBroadcastDetailDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "network": {
+            "$ref": "#/components/schemas/Wifi network reference"
+          },
+          "securityConfiguration": {
+            "$ref": "#/components/schemas/Wifi security configuration detailObject"
+          },
+          "broadcastingDeviceFilter": {
+            "$ref": "#/components/schemas/Broadcasting device filter",
+            "description": "Defines the custom scope of devices that will broadcast this WiFi network. If null, the WiFi network will be broadcast by all Access Point capable devices."
+          },
+          "mdnsProxyConfiguration": {
+            "$ref": "#/components/schemas/mDNS filtering configuration"
+          },
+          "multicastFilteringPolicy": {
+            "$ref": "#/components/schemas/Multicast filtering policy"
+          },
+          "multicastToUnicastConversionEnabled": {
+            "type": "boolean"
+          },
+          "clientIsolationEnabled": {
+            "type": "boolean"
+          },
+          "hideName": {
+            "type": "boolean"
+          },
+          "uapsdEnabled": {
+            "type": "boolean",
+            "description": "Indicates whether Unscheduled Automatic Power Save Delivery (U-APSD) is enabled"
+          },
+          "basicDataRateKbpsByFrequencyGHz": {
+            "$ref": "#/components/schemas/IntegrationWifiBasicDataRateConfigurationDto"
+          },
+          "clientFilteringPolicy": {
+            "$ref": "#/components/schemas/IntegrationWifiClientFilteringPolicyDto",
+            "description": "Client connection filtering policy. Allow/restrict access to the WiFi network based on client device MAC addresses."
+          },
+          "blackoutScheduleConfiguration": {
+            "$ref": "#/components/schemas/Integration blackout schedule configuration"
+          }
+        },
+        "required": [
+          "clientIsolationEnabled",
+          "enabled",
+          "hideName",
+          "id",
+          "metadata",
+          "multicastToUnicastConversionEnabled",
+          "name",
+          "securityConfiguration",
+          "type",
+          "uapsdEnabled"
+        ]
+      },
+      "Wifi broadcast overview": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "STANDARD": "#/components/schemas/IntegrationStandardWifiBroadcastOverviewDto",
+            "IOT_OPTIMIZED": "#/components/schemas/IntegrationIotOptimizedWifiBroadcastOverviewDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          },
+          "network": {
+            "$ref": "#/components/schemas/Wifi network reference"
+          },
+          "securityConfiguration": {
+            "$ref": "#/components/schemas/Wifi security configuration overview"
+          },
+          "broadcastingDeviceFilter": {
+            "$ref": "#/components/schemas/Broadcasting device filter",
+            "description": "Defines the custom scope of devices that will broadcast this WiFi network. If null, the WiFi network will be broadcast by all Access Point capable devices."
+          }
+        },
+        "required": [
+          "enabled",
+          "id",
+          "metadata",
+          "name",
+          "securityConfiguration",
+          "type"
+        ]
+      },
+      "Wifi hotspot configuration": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "CAPTIVE_PORTAL": "#/components/schemas/IntegrationWifiCaptivePortalConfigurationDetailDto",
+            "PASSPOINT": "#/components/schemas/IntegrationWifiPasspointConfigurationDetailDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Wifi network reference": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "NATIVE": "#/components/schemas/IntegrationWifiNativeNetworkDto",
+            "SPECIFIC": "#/components/schemas/IntegrationWifiSpecificNetworkDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Wifi security configuration detailObject": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "OPEN": "#/components/schemas/IntegrationWifiOpenSecurityConfigurationDetailDto",
+            "WPA2_PERSONAL": "#/components/schemas/IntegrationWifiWpa2PersonalSecurityConfigurationDetailDto",
+            "WPA3_PERSONAL": "#/components/schemas/IntegrationWifiWpa3PersonalSecurityConfigurationDetailDto",
+            "WPA2_WPA3_PERSONAL": "#/components/schemas/IntegrationWifiWpa2Wpa3PersonalSecurityConfigurationDetailDto",
+            "WPA2_ENTERPRISE": "#/components/schemas/IntegrationWifiWpa2EnterpriseSecurityConfigurationDetailDto",
+            "WPA3_ENTERPRISE": "#/components/schemas/IntegrationWifiWpa3EnterpriseSecurityConfigurationDetailDto",
+            "WPA2_WPA3_ENTERPRISE": "#/components/schemas/IntegrationWifiWpa2Wpa3EnterpriseSecurityConfigurationDetailDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "radiusConfiguration": {}
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Wifi security configuration overview": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "OPEN": "#/components/schemas/IntegrationWifiOpenSecurityConfigurationOverviewDto",
+            "WPA2_PERSONAL": "#/components/schemas/IntegrationWifiWpa2PersonalSecurityConfigurationOverviewDto",
+            "WPA3_PERSONAL": "#/components/schemas/IntegrationWifiWpa3PersonalSecurityConfigurationOverviewDto",
+            "WPA2_WPA3_PERSONAL": "#/components/schemas/IntegrationWifiWpa2Wpa3PersonalSecurityConfigurationOverviewDto",
+            "WPA2_ENTERPRISE": "#/components/schemas/IntegrationWifiWpa2EnterpriseSecurityConfigurationOverviewDto",
+            "WPA3_ENTERPRISE": "#/components/schemas/IntegrationWifiWpa3EnterpriseSecurityConfigurationOverviewDto",
+            "WPA2_WPA3_ENTERPRISE": "#/components/schemas/IntegrationWifiWpa2Wpa3EnterpriseSecurityConfigurationOverviewDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "mDNS filtering configuration": {
+        "discriminator": {
+          "propertyName": "mode",
+          "mapping": {
+            "AUTO": "#/components/schemas/IntegrationWifiMdnsProxyAutoConfigurationDto",
+            "CUSTOM": "#/components/schemas/IntegrationWifiMdnsProxyCustomConfigurationDto"
+          }
+        },
+        "properties": {
+          "mode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "mode"
+        ]
+      },
+      "mDNS proxy policy": {
+        "discriminator": {
+          "propertyName": "action",
+          "mapping": {
+            "ALLOW": "#/components/schemas/IntegrationWifiMdnsProxyAllowPolicyDto",
+            "BLOCK": "#/components/schemas/IntegrationWifiMdnsProxyBlockPolicyDto"
+          }
+        },
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "deviceFilter": {
+            "$ref": "#/components/schemas/Broadcasting device filter",
+            "description": "Defines the custom scope of devices that will filter Mdns. If null, the mDNS filtering will be added to all Access Point capable devices."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      },
+      "mDNS service": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "PREDEFINED": "#/components/schemas/IntegrationWifiMdnsProxyPredefinedServiceDto",
+            "CUSTOM": "#/components/schemas/IntegrationWifiMdnsProxyCustomServiceDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,1601 @@
+{
+  "domain": "networks",
+  "paths": {
+    "/v1/sites/{siteId}/networks/{networkId}": {
+      "get": {
+        "tags": [
+          "Networks"
+        ],
+        "summary": "Get Network Details",
+        "description": "Retrieve detailed information about a specific network.",
+        "operationId": "getNetworkDetails",
+        "parameters": [
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Network details"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Networks"
+        ],
+        "summary": "Update Network",
+        "description": "Update an existing network on a site.",
+        "operationId": "updateNetwork",
+        "parameters": [
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Create or update Network"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Network details"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Networks"
+        ],
+        "summary": "Delete Network",
+        "description": "Delete an existing network on a site.",
+        "operationId": "deleteNetwork",
+        "parameters": [
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cascade",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "force",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/networks": {
+      "get": {
+        "tags": [
+          "Networks"
+        ],
+        "summary": "List Networks",
+        "description": "Retrieve a paginated list of all Networks on a site.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`management`|`STRING`|`eq` `ne` `in` `notIn`|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`name`|`STRING`|`eq` `ne` `in` `notIn` `like`|\n|`enabled`|`BOOLEAN`|`eq` `ne`|\n|`vlanId`|`INTEGER`|`eq` `ne` `gt` `ge` `lt` `le` `in` `notIn`|\n|`deviceId`|`UUID`|`eq` `ne` `in` `notIn` `isNull` `isNotNull`|\n|`metadata.origin`|`STRING`|`eq` `ne` `in` `notIn`|\n</details>",
+        "operationId": "getNetworksOverviewPage",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "maximum": 200,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Network overview page"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Networks"
+        ],
+        "summary": "Create Network",
+        "description": "Create a new network on a site.",
+        "operationId": "createNetwork",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Create or update Network"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Network details"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/networks/{networkId}/references": {
+      "get": {
+        "tags": [
+          "Networks"
+        ],
+        "summary": "Get Network References",
+        "description": "Retrieve references to a specific network.",
+        "operationId": "getNetworkReferences",
+        "parameters": [
+          {
+            "name": "networkId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Network references"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Create or update Network": {
+        "discriminator": {
+          "propertyName": "management",
+          "mapping": {
+            "UNMANAGED": "#/components/schemas/IntegrationUnmanagedNetworkCreateUpdateDto",
+            "GATEWAY": "#/components/schemas/IntegrationGatewayManagedNetworkCreateUpdateDto",
+            "SWITCH": "#/components/schemas/IntegrationSwitchManagedNetworkCreateUpdateDto"
+          }
+        },
+        "properties": {
+          "management": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "example": "Default Network"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "vlanId": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 4000,
+            "minimum": 2
+          },
+          "dhcpGuarding": {
+            "$ref": "#/components/schemas/Network DHCP Guarding",
+            "description": "DHCP Guarding settings for this Network. If this field is omitted or null, the feature is disabled"
+          }
+        },
+        "required": [
+          "enabled",
+          "management",
+          "name",
+          "vlanId"
+        ]
+      },
+      "DHCP Configuration for IPv6 Network": {
+        "properties": {
+          "ipAddressSuffixRange": {
+            "$ref": "#/components/schemas/IntegrationIpv6AddressSuffixRangeSelectorDto"
+          },
+          "leaseTimeSeconds": {
+            "type": "integer",
+            "format": "int32",
+            "description": "The lease time in seconds for IP addresses in this range.",
+            "maximum": 31536000,
+            "minimum": 0
+          }
+        },
+        "required": [
+          "ipAddressSuffixRange",
+          "leaseTimeSeconds"
+        ]
+      },
+      "Derived entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User defined or derived entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          }
+        ]
+      },
+      "Entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "Gateway Managed IPv4 Configuration": {
+        "properties": {
+          "autoScaleEnabled": {
+            "type": "boolean",
+            "description": "Whether the Network can automatically scale its subnet size based on the number of active DHCP leases."
+          },
+          "hostIpAddress": {
+            "type": "string"
+          },
+          "prefixLength": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 30,
+            "minimum": 8
+          },
+          "additionalHostIpSubnets": {
+            "type": "array",
+            "description": "Additional host IP subnets assigned to this VLAN.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64,
+            "minItems": 1
+          },
+          "dhcpConfiguration": {
+            "$ref": "#/components/schemas/Gateway Managed IPv4 DHCP Configuration",
+            "description": "IPv4 DHCP configuration for this network. If this field is omitted or null, DHCP is not working and hosts must get an address statically or from another server in this broadcast domain."
+          },
+          "natOutboundIpAddressConfiguration": {
+            "type": "array",
+            "description": "List of NAT Outbound Configurations defining which IP addresses are used for NAT translation. This array must contain all WAN interfaces with `static` or `PPPoE` IPv4 connection configuration.",
+            "items": {
+              "$ref": "#/components/schemas/WAN NAT Outbound Configuration"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "autoScaleEnabled",
+          "hostIpAddress",
+          "prefixLength"
+        ]
+      },
+      "Gateway Managed IPv4 DHCP Configuration": {
+        "discriminator": {
+          "propertyName": "mode",
+          "mapping": {
+            "SERVER": "#/components/schemas/Gateway Managed IPv4 DHCP Server Configuration",
+            "RELAY": "#/components/schemas/IPv4 DHCP Relay Configuration"
+          }
+        },
+        "properties": {
+          "mode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "mode"
+        ]
+      },
+      "Gateway Managed IPv4 DHCP Server Configuration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Gateway Managed IPv4 DHCP Configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ipAddressRange": {
+                "$ref": "#/components/schemas/IP address range"
+              },
+              "gatewayIpAddressOverride": {
+                "type": "string",
+                "description": "Gateway IP address provided to DHCP clients. If null, the default gateway will be assigned."
+              },
+              "dnsServerIpAddressesOverride": {
+                "type": "array",
+                "description": "List of DNS servers assigned to client devices by the DHCP server. If none are specified, they will be selected automatically.",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 4,
+                "minItems": 1
+              },
+              "leaseTimeSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The lease time in seconds for addresses in this range.",
+                "maximum": 31536000,
+                "minimum": 0
+              },
+              "domainName": {
+                "type": "string",
+                "description": "Domain name that can be used to access network in the browser."
+              },
+              "pingConflictDetectionEnabled": {
+                "type": "boolean"
+              },
+              "pxeConfiguration": {
+                "$ref": "#/components/schemas/PXE Configuration",
+                "description": "Pre execution environment configuration for network boot"
+              },
+              "ntpServerIpAddresses": {
+                "type": "array",
+                "description": "Network Time Protocol (NTP) server IP addresses.",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 2,
+                "minItems": 1
+              },
+              "option43Value": {
+                "type": "string",
+                "description": "Custom DHCP option (43) \u00e2\u20ac\u201d the value MUST be the UniFi Network application's host IP address."
+              },
+              "tftpServerAddress": {
+                "type": "string",
+                "description": "Trivial File Transfer Protocol (TFTP) server address \u00e2\u20ac\u201d accepts a hostname, URL or IP address."
+              },
+              "timeOffsetSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Time offset in seconds from UTC.",
+                "maximum": 86400,
+                "minimum": -86400
+              },
+              "wpadUrl": {
+                "type": "string",
+                "description": "Web Proxy Auto-Discovery (WPAD) URL."
+              },
+              "winsServerIpAddresses": {
+                "type": "array",
+                "description": "Windows Internet Name Service (WINS) server IP addresses.",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 2,
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "ipAddressRange",
+          "leaseTimeSeconds",
+          "pingConflictDetectionEnabled"
+        ]
+      },
+      "Gateway managed network details": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Network details"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "isolationEnabled": {
+                "type": "boolean",
+                "description": "Whether this network is isolated from all other networks."
+              },
+              "cellularBackupEnabled": {
+                "type": "boolean",
+                "description": "Whether this network is allowed to use cellular data when WAN connection(s) are down."
+              },
+              "zoneId": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Firewall zone ID associated with this Network."
+              },
+              "internetAccessEnabled": {
+                "type": "boolean",
+                "description": "Whether the internet access is allowed for the device on this network."
+              },
+              "mdnsForwardingEnabled": {
+                "type": "boolean",
+                "description": "Whether this network should participate in mDNS traffic forwarding."
+              },
+              "ipv4Configuration": {
+                "$ref": "#/components/schemas/Gateway Managed IPv4 Configuration",
+                "description": "Details about IPv4 configuration for this Network."
+              },
+              "ipv6Configuration": {
+                "$ref": "#/components/schemas/Network IPv6 Configuration",
+                "description": "Details about IPv6 configuration for this Network. If this field is omitted or null then IPv6 is not configured on this Network."
+              }
+            }
+          }
+        ],
+        "required": [
+          "cellularBackupEnabled",
+          "enabled",
+          "id",
+          "internetAccessEnabled",
+          "ipv4Configuration",
+          "isolationEnabled",
+          "mdnsForwardingEnabled",
+          "metadata",
+          "name",
+          "vlanId",
+          "zoneId"
+        ]
+      },
+      "Gateway managed network overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Network overview"
+          }
+        ],
+        "required": [
+          "enabled",
+          "id",
+          "metadata",
+          "name",
+          "vlanId"
+        ]
+      },
+      "IP Address selector": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IP address selector"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "required": [
+          "value"
+        ]
+      },
+      "IP address range": {
+        "properties": {
+          "start": {
+            "type": "string"
+          },
+          "stop": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start",
+          "stop"
+        ]
+      },
+      "IP address range selector": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IP address selector"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string"
+              },
+              "stop": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "required": [
+          "start",
+          "stop"
+        ]
+      },
+      "IP address selector": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IP_ADDRESS": "#/components/schemas/IP Address selector",
+            "IP_ADDRESS_RANGE": "#/components/schemas/IP address range selector"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "IPv4 DHCP Relay Configuration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Gateway Managed IPv4 DHCP Configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "dhcpServerIpAddresses": {
+                "type": "array",
+                "description": "DHCP Server IP addresses",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/Switch Managed IPv4 DHCP Configuration"
+          }
+        ],
+        "required": [
+          "dhcpServerIpAddresses"
+        ]
+      },
+      "IPv4 DHCP Server Configuration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Switch Managed IPv4 DHCP Configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ipAddressRange": {
+                "$ref": "#/components/schemas/IP address range"
+              },
+              "gatewayIpAddressOverride": {
+                "type": "string",
+                "description": "Gateway IP address provided to DHCP clients. If null, the default gateway will be assigned."
+              },
+              "dnsServerIpAddressesOverride": {
+                "type": "array",
+                "description": "List of DNS servers assigned to client devices by the DHCP server. If none are specified, they will be selected automatically.",
+                "items": {
+                  "type": "string"
+                },
+                "maxItems": 4,
+                "minItems": 1
+              },
+              "leaseTimeSeconds": {
+                "type": "integer",
+                "format": "int32",
+                "description": "The lease time in seconds for addresses in this range.",
+                "maximum": 31536000,
+                "minimum": 0
+              },
+              "domainName": {
+                "type": "string",
+                "description": "Domain name that can be used to access network in the browser."
+              }
+            }
+          }
+        ],
+        "required": [
+          "ipAddressRange",
+          "leaseTimeSeconds"
+        ]
+      },
+      "IPv6 Client Address Assignment": {
+        "properties": {
+          "dhcpConfiguration": {
+            "$ref": "#/components/schemas/DHCP Configuration for IPv6 Network",
+            "description": "IPv6 DHCP configuration for this network. At least one addressing method must be active: either enable SLAAC or provide DHCP configuration. If this field is null, SLAAC must be enabled."
+          },
+          "slaacEnabled": {
+            "type": "boolean",
+            "description": "Allows devices to obtain IPv6 addresses via SLAAC (Stateless Address Autoconfiguration) without DHCPv6. At least one addressing method must be active: either enable SLAAC or provide DHCP configuration."
+          }
+        },
+        "required": [
+          "slaacEnabled"
+        ]
+      },
+      "IPv6 Static Configuration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Network IPv6 Configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "hostIpAddress": {
+                "type": "string",
+                "description": "The static IPv6 address assigned to this Network."
+              },
+              "prefixLength": {
+                "type": "integer",
+                "format": "int32",
+                "maximum": 127,
+                "minimum": 64
+              }
+            }
+          }
+        ],
+        "required": [
+          "clientAddressAssignment",
+          "hostIpAddress",
+          "prefixLength"
+        ]
+      },
+      "IntegrationDerivedSiteToSiteTunnelMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Site-to-site VPN tunnel metadata"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "SDWAN"
+                ]
+              }
+            }
+          }
+        ],
+        "required": [
+          "source"
+        ]
+      },
+      "IntegrationGatewayManagedNetworkCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Create or update Network"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "isolationEnabled": {
+                "type": "boolean",
+                "description": "Whether this network is isolated from all other networks."
+              },
+              "cellularBackupEnabled": {
+                "type": "boolean",
+                "description": "Whether this network is allowed to use cellular data when WAN connection(s) are down."
+              },
+              "zoneId": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Firewall zone ID associated with this Network."
+              },
+              "internetAccessEnabled": {
+                "type": "boolean",
+                "description": "Whether the internet access is allowed for the device on this network."
+              },
+              "mdnsForwardingEnabled": {
+                "type": "boolean",
+                "description": "Whether this network should participate in mDNS traffic forwarding."
+              },
+              "ipv4Configuration": {
+                "$ref": "#/components/schemas/Gateway Managed IPv4 Configuration",
+                "description": "Details about IPv4 configuration for this Network."
+              },
+              "ipv6Configuration": {
+                "$ref": "#/components/schemas/Network IPv6 Configuration",
+                "description": "Details about IPv6 configuration for this Network. If this field is omitted or null then IPv6 is not configured on this Network."
+              }
+            }
+          }
+        ],
+        "required": [
+          "cellularBackupEnabled",
+          "enabled",
+          "internetAccessEnabled",
+          "ipv4Configuration",
+          "isolationEnabled",
+          "mdnsForwardingEnabled",
+          "name",
+          "vlanId",
+          "zoneId"
+        ]
+      },
+      "IntegrationIpv6AddressSuffixRangeSelectorDto": {
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Start suffix of the DHCPv6 address pool."
+          },
+          "stop": {
+            "type": "string",
+            "description": "End suffix of the DHCPv6 address pool."
+          }
+        },
+        "required": [
+          "start",
+          "stop"
+        ]
+      },
+      "IntegrationSwitchManagedNetworkCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Create or update Network"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "isolationEnabled": {
+                "type": "boolean",
+                "description": "Whether this network is isolated from all other networks."
+              },
+              "cellularBackupEnabled": {
+                "type": "boolean",
+                "description": "Whether this network is allowed to use cellular data when WAN connection(s) are down."
+              },
+              "deviceId": {
+                "type": "string",
+                "format": "uuid",
+                "description": "ID of the L3 switching capable device that manages this network."
+              },
+              "ipv4Configuration": {
+                "$ref": "#/components/schemas/Switch Managed IPv4 Configuration",
+                "description": "Details about IPv4 configuration for this Network."
+              }
+            }
+          }
+        ],
+        "required": [
+          "cellularBackupEnabled",
+          "deviceId",
+          "enabled",
+          "ipv4Configuration",
+          "isolationEnabled",
+          "name",
+          "vlanId"
+        ]
+      },
+      "IntegrationUnmanagedNetworkCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Create or update Network"
+          }
+        ],
+        "required": [
+          "enabled",
+          "name",
+          "vlanId"
+        ]
+      },
+      "NAT Outbound Auto Configuration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WAN NAT Outbound Configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ipAddressSelectionMode": {
+                "type": "string",
+                "description": "IP address selection mode which determines how the IP address will be selected from the group of IP addresses to translate the traffic on network using NAT.",
+                "enum": [
+                  "MAIN",
+                  "ALL"
+                ]
+              }
+            }
+          }
+        ],
+        "required": [
+          "ipAddressSelectionMode",
+          "wanInterfaceId"
+        ]
+      },
+      "NAT Outbound Static Configuration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/WAN NAT Outbound Configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ipAddressSelectors": {
+                "type": "array",
+                "description": "List of IP addresses or address ranges which determines which IP addresses will be used to translate the traffic on network using NAT.",
+                "items": {
+                  "$ref": "#/components/schemas/IP address selector"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "ipAddressSelectors",
+          "wanInterfaceId"
+        ]
+      },
+      "Network DHCP Guarding": {
+        "description": "Details about DHCP Guarding settings for this Network.",
+        "properties": {
+          "trustedDhcpServerIpAddresses": {
+            "type": "array",
+            "description": "List of trusted DHCP server IP addresses.",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "trustedDhcpServerIpAddresses"
+        ]
+      },
+      "Network IPv6 Configuration": {
+        "discriminator": {
+          "propertyName": "interfaceType",
+          "mapping": {
+            "PREFIX_DELEGATION": "#/components/schemas/Prefix delegation IPv6 Configuration",
+            "STATIC": "#/components/schemas/IPv6 Static Configuration"
+          }
+        },
+        "properties": {
+          "interfaceType": {
+            "type": "string"
+          },
+          "clientAddressAssignment": {
+            "$ref": "#/components/schemas/IPv6 Client Address Assignment",
+            "description": "Client Address Assignment"
+          },
+          "routerAdvertisement": {
+            "$ref": "#/components/schemas/Router advertisement Configuration",
+            "description": "Router advertisement. Without it, hosts will not autoconfigure addresses and will lack a default route even with DHCPv6."
+          },
+          "dnsServerIpAddressesOverride": {
+            "type": "array",
+            "description": "The IPv6 DNS server addresses assigned to this Network. If none are specified, they will be selected automatically.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 4,
+            "minItems": 1
+          },
+          "additionalHostIpSubnets": {
+            "type": "array",
+            "description": "Additional host IP subnets assigned to this VLAN.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 4,
+            "minItems": 1
+          }
+        },
+        "required": [
+          "clientAddressAssignment",
+          "interfaceType"
+        ]
+      },
+      "Network details": {
+        "discriminator": {
+          "propertyName": "management",
+          "mapping": {
+            "UNMANAGED": "#/components/schemas/Unmanaged network details",
+            "GATEWAY": "#/components/schemas/Gateway managed network details",
+            "SWITCH": "#/components/schemas/Switch managed network details"
+          }
+        },
+        "properties": {
+          "management": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "example": "Default Network"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "vlanId": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 2
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata",
+            "description": "Orchestrated or System-defined configurable network support"
+          },
+          "dhcpGuarding": {
+            "$ref": "#/components/schemas/Network DHCP Guarding",
+            "description": "DHCP Guarding settings for this Network. If this field is omitted or null, the feature is disabled"
+          }
+        },
+        "required": [
+          "enabled",
+          "id",
+          "management",
+          "metadata",
+          "name",
+          "vlanId"
+        ]
+      },
+      "Network overview": {
+        "discriminator": {
+          "propertyName": "management",
+          "mapping": {
+            "UNMANAGED": "#/components/schemas/Unmanaged network overview",
+            "GATEWAY": "#/components/schemas/Gateway managed network overview",
+            "SWITCH": "#/components/schemas/Switch managed network overview"
+          }
+        },
+        "properties": {
+          "management": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "example": "Default Network"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "vlanId": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 2
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata",
+            "description": "Orchestrated or System-defined configurable network support"
+          }
+        },
+        "required": [
+          "enabled",
+          "id",
+          "management",
+          "metadata",
+          "name",
+          "vlanId"
+        ]
+      },
+      "Network overview page": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Network overview"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      },
+      "Network reference detail": {
+        "properties": {
+          "referenceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "referenceId"
+        ]
+      },
+      "Network reference resource": {
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "enum": [
+              "CLIENT",
+              "DEVICE",
+              "STATIC_ROUTE",
+              "OSPF_ROUTE",
+              "NEXT_AI",
+              "WIFI",
+              "NAT_RULE",
+              "SD_WAN"
+            ]
+          },
+          "referenceCount": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Number of references of this type",
+            "minimum": 1
+          },
+          "references": {
+            "type": "array",
+            "description": "List of references, present only if resourceType has API model defined",
+            "items": {
+              "$ref": "#/components/schemas/Network reference detail"
+            }
+          }
+        },
+        "required": [
+          "referenceCount",
+          "resourceType"
+        ]
+      },
+      "Network references": {
+        "properties": {
+          "referenceResources": {
+            "type": "array",
+            "description": "List of network reference resources",
+            "items": {
+              "$ref": "#/components/schemas/Network reference resource"
+            }
+          }
+        },
+        "required": [
+          "referenceResources"
+        ]
+      },
+      "Orchestrated entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          }
+        ]
+      },
+      "PXE Configuration": {
+        "properties": {
+          "serverIpAddress": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "filename",
+          "serverIpAddress"
+        ]
+      },
+      "Prefix delegation IPv6 Configuration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Network IPv6 Configuration"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "prefixDelegationWanInterfaceId": {
+                "type": "string",
+                "format": "uuid",
+                "description": "ID of the WAN interface from which the prefix is delegated."
+              }
+            }
+          }
+        ],
+        "required": [
+          "clientAddressAssignment",
+          "prefixDelegationWanInterfaceId"
+        ]
+      },
+      "Router advertisement Configuration": {
+        "properties": {
+          "priority": {
+            "type": "string",
+            "description": "Router advertisement priority.",
+            "enum": [
+              "LOW",
+              "MEDIUM",
+              "HIGH"
+            ]
+          }
+        },
+        "required": [
+          "priority"
+        ]
+      },
+      "Site-to-site VPN tunnel metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/IntegrationDerivedSiteToSiteTunnelMetadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "Switch Managed IPv4 Configuration": {
+        "properties": {
+          "autoScaleEnabled": {
+            "type": "boolean",
+            "description": "Whether the Network can automatically scale its subnet size based on the number of active DHCP leases."
+          },
+          "hostIpAddress": {
+            "type": "string"
+          },
+          "prefixLength": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 30,
+            "minimum": 8
+          },
+          "additionalHostIpSubnets": {
+            "type": "array",
+            "description": "Additional host IP subnets assigned to this VLAN.",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64,
+            "minItems": 1
+          },
+          "dhcpConfiguration": {
+            "$ref": "#/components/schemas/Switch Managed IPv4 DHCP Configuration",
+            "description": "IPv4 DHCP configuration for this network. If this field is omitted or null, DHCP is not working and hosts must get an address statically or from another server in this broadcast domain."
+          }
+        },
+        "required": [
+          "autoScaleEnabled",
+          "hostIpAddress",
+          "prefixLength"
+        ]
+      },
+      "Switch Managed IPv4 DHCP Configuration": {
+        "discriminator": {
+          "propertyName": "mode",
+          "mapping": {
+            "SERVER": "#/components/schemas/IPv4 DHCP Server Configuration",
+            "RELAY": "#/components/schemas/IPv4 DHCP Relay Configuration"
+          }
+        },
+        "properties": {
+          "mode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "mode"
+        ]
+      },
+      "Switch managed network details": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Network details"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "isolationEnabled": {
+                "type": "boolean",
+                "description": "Whether this network is isolated from all other networks."
+              },
+              "cellularBackupEnabled": {
+                "type": "boolean",
+                "description": "Whether this network is allowed to use cellular data when WAN connection(s) are down."
+              },
+              "deviceId": {
+                "type": "string",
+                "format": "uuid",
+                "description": "ID of the L3 switching capable device that manages this network."
+              },
+              "ipv4Configuration": {
+                "$ref": "#/components/schemas/Switch Managed IPv4 Configuration",
+                "description": "Details about IPv4 configuration for this Network."
+              }
+            }
+          }
+        ],
+        "required": [
+          "cellularBackupEnabled",
+          "deviceId",
+          "enabled",
+          "id",
+          "ipv4Configuration",
+          "isolationEnabled",
+          "metadata",
+          "name",
+          "vlanId"
+        ]
+      },
+      "Switch managed network overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Network overview"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "deviceId": {
+                "type": "string",
+                "format": "uuid",
+                "description": "ID of the switch this Network is managed by.",
+                "example": "550e8400-e29b-41d4-a716-446655440000"
+              }
+            }
+          }
+        ],
+        "required": [
+          "deviceId",
+          "enabled",
+          "id",
+          "metadata",
+          "name",
+          "vlanId"
+        ]
+      },
+      "System defined entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "configurable": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "Unmanaged network details": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Network details"
+          }
+        ],
+        "required": [
+          "enabled",
+          "id",
+          "metadata",
+          "name",
+          "vlanId"
+        ]
+      },
+      "Unmanaged network overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Network overview"
+          }
+        ],
+        "required": [
+          "enabled",
+          "id",
+          "metadata",
+          "name",
+          "vlanId"
+        ]
+      },
+      "User defined entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User defined or derived entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/Site-to-site VPN tunnel metadata"
+          }
+        ]
+      },
+      "User defined or derived entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or derived or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or system defined entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or system defined or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "WAN NAT Outbound Configuration": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "AUTO": "#/components/schemas/NAT Outbound Auto Configuration",
+            "STATIC": "#/components/schemas/NAT Outbound Static Configuration"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "wanInterfaceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "type",
+          "wanInterfaceId"
+        ]
+      }
+    }
+  }
+}

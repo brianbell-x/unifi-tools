@@ -1,0 +1,424 @@
+{
+  "domain": "vouchers",
+  "paths": {
+    "/v1/sites/{siteId}/hotspot/vouchers": {
+      "get": {
+        "tags": [
+          "Hotspot"
+        ],
+        "summary": "List Vouchers",
+        "description": "Retrieve a paginated list of Hotspot vouchers.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`createdAt`|`TIMESTAMP`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`name`|`STRING`|`eq` `ne` `in` `notIn` `like`|\n|`code`|`STRING`|`eq` `ne` `in` `notIn`|\n|`authorizedGuestLimit`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n|`authorizedGuestCount`|`INTEGER`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`activatedAt`|`TIMESTAMP`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`expiresAt`|`TIMESTAMP`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`expired`|`BOOLEAN`|`eq` `ne`|\n|`timeLimitMinutes`|`INTEGER`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`dataUsageLimitMBytes`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n|`rxRateLimitKbps`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n|`txRateLimitKbps`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n</details>",
+        "operationId": "getVouchers",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 100,
+              "maximum": 1000,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hotspot voucher detail page"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Hotspot"
+        ],
+        "summary": "Generate Vouchers",
+        "description": "Create one or more Hotspot vouchers.",
+        "operationId": "createVouchers",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Hotspot voucher creation request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntegrationVoucherCreationResultDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Hotspot"
+        ],
+        "summary": "Delete Vouchers",
+        "description": "Remove Hotspot vouchers based on the specified filter criteria.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`createdAt`|`TIMESTAMP`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`name`|`STRING`|`eq` `ne` `in` `notIn` `like`|\n|`code`|`STRING`|`eq` `ne` `in` `notIn`|\n|`authorizedGuestLimit`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n|`authorizedGuestCount`|`INTEGER`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`activatedAt`|`TIMESTAMP`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`expiresAt`|`TIMESTAMP`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`expired`|`BOOLEAN`|`eq` `ne`|\n|`timeLimitMinutes`|`INTEGER`|`eq` `ne` `gt` `ge` `lt` `le`|\n|`dataUsageLimitMBytes`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n|`rxRateLimitKbps`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n|`txRateLimitKbps`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n</details>",
+        "operationId": "deleteVouchers",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voucher deletion results"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/hotspot/vouchers/{voucherId}": {
+      "get": {
+        "tags": [
+          "Hotspot"
+        ],
+        "summary": "Get Voucher Details",
+        "description": "Retrieve details of a specific Hotspot voucher.",
+        "operationId": "getVoucher",
+        "parameters": [
+          {
+            "name": "voucherId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Hotspot voucher details"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Hotspot"
+        ],
+        "summary": "Delete Voucher",
+        "description": "Remove a specific Hotspot voucher.",
+        "operationId": "deleteVoucher",
+        "parameters": [
+          {
+            "name": "voucherId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voucher deletion results"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Hotspot voucher creation request": {
+        "properties": {
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "default": "1",
+            "description": "Number of vouchers to generate",
+            "maximum": 1000,
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Voucher note, duplicated across all generated vouchers"
+          },
+          "authorizedGuestLimit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) limit for how many different guests can use the same voucher to authorize network access",
+            "example": 1,
+            "minimum": 1
+          },
+          "timeLimitMinutes": {
+            "type": "integer",
+            "format": "int64",
+            "description": "How long (in minutes) the voucher will provide access to the network since authorization of the first guest.\nSubsequently connected guests, if allowed, will share the same expiration time.",
+            "maximum": 1000000,
+            "minimum": 1
+          },
+          "dataUsageLimitMBytes": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) data usage limit in megabytes",
+            "maximum": 1048576,
+            "minimum": 1
+          },
+          "rxRateLimitKbps": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) download rate limit in kilobits per second",
+            "maximum": 100000,
+            "minimum": 2
+          },
+          "txRateLimitKbps": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) upload rate limit in kilobits per second",
+            "maximum": 100000,
+            "minimum": 2
+          }
+        },
+        "required": [
+          "name",
+          "timeLimitMinutes"
+        ]
+      },
+      "Hotspot voucher detail page": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Hotspot voucher details"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      },
+      "Hotspot voucher details": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string",
+            "description": "Voucher note, may contain duplicate values across multiple vouchers",
+            "example": "hotel-guest"
+          },
+          "code": {
+            "type": "string",
+            "description": "Secret code to active the voucher using the Hotspot portal",
+            "example": 4861409510
+          },
+          "authorizedGuestLimit": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) limit for how many different guests can use the same voucher to authorize network access",
+            "example": 1
+          },
+          "authorizedGuestCount": {
+            "type": "integer",
+            "format": "int64",
+            "description": "For how many guests the voucher has been used to authorize network access",
+            "example": 0
+          },
+          "activatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "(Optional) timestamp when the voucher has been activated (authorization time of the first guest)"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "(Optional) timestamp when the voucher will become expired. All guests using the voucher will be unauthorized from network access"
+          },
+          "expired": {
+            "type": "boolean",
+            "description": "Whether the voucher has been expired and can no longer be used to authorize network access"
+          },
+          "timeLimitMinutes": {
+            "type": "integer",
+            "format": "int64",
+            "description": "How long (in minutes) the voucher will provide access to the network since authorization of the first guest.\nSubsequently connected guests, if allowed, will share the same expiration time.",
+            "example": 1440
+          },
+          "dataUsageLimitMBytes": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) data usage limit in megabytes",
+            "example": 1024
+          },
+          "rxRateLimitKbps": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) download rate limit in kilobits per second",
+            "example": 1000
+          },
+          "txRateLimitKbps": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) upload rate limit in kilobits per second",
+            "example": 1000
+          }
+        },
+        "required": [
+          "authorizedGuestCount",
+          "code",
+          "createdAt",
+          "expired",
+          "id",
+          "name",
+          "timeLimitMinutes"
+        ]
+      },
+      "IntegrationVoucherCreationResultDto": {
+        "properties": {
+          "vouchers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Hotspot voucher details"
+            }
+          }
+        }
+      },
+      "Voucher deletion results": {
+        "properties": {
+          "vouchersDeleted": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      }
+    }
+  }
+}

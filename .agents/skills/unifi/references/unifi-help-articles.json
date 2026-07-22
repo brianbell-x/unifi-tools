@@ -1,0 +1,1937 @@
+[
+  {
+    "title": "Standalone Pairing for Bridge Devices (without UniFi)",
+    "url": "https://help.ui.com/hc/en-us/articles/36569122308503-Standalone-Pairing-for-Bridge-Devices-without-UniFi",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Self-Hosting UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/34210126298775-Self-Hosting-UniFi",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Understanding UniFi Cloud Architecture",
+    "url": "https://help.ui.com/hc/en-us/articles/30319146145175-Understanding-UniFi-Cloud-Architecture",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Choosing the Right UniFi Control Plane",
+    "url": "https://help.ui.com/hc/en-us/articles/30127033090071-Choosing-the-Right-UniFi-Control-Plane",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Getting Started with the Official UniFi API",
+    "url": "https://help.ui.com/hc/en-us/articles/30076656117655-Getting-Started-with-the-Official-UniFi-API",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Introduction to UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/360012192813-Introduction-to-UniFi",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Adding Users in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/28692256644247-Adding-Users-in-UniFi",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Adding Admins in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/28692158912279-Adding-Admins-in-UniFi",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "UniFi Local Management",
+    "url": "https://help.ui.com/hc/en-us/articles/28457353760919-UniFi-Local-Management",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "UniFi Remote Management via Site Manager",
+    "url": "https://help.ui.com/hc/en-us/articles/20680072882967-UniFi-Remote-Management-via-Site-Manager",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Activating UniFi Cable Internet",
+    "url": "https://help.ui.com/hc/en-us/articles/18770595926551-Activating-UniFi-Cable-Internet",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Multi-Factor Authentication (MFA)",
+    "url": "https://help.ui.com/hc/en-us/articles/115012986607-Multi-Factor-Authentication-MFA",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "How to Set Up UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/4416276882327-How-to-Set-Up-UniFi",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "UniFi Remote Management via Site Manager",
+    "url": "https://help.ui.com/hc/en-us/articles/11444786290071-UniFi-Remote-Management-via-Site-Manager",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "UniFi - Device Adoption",
+    "url": "https://help.ui.com/hc/en-us/articles/360012622613-UniFi-Device-Adoption",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "UniFi Password Recovery and Ownership Transfer",
+    "url": "https://help.ui.com/hc/en-us/articles/14275946860311-UniFi-Password-Recovery-and-Ownership-Transfer",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "UniFi Updates",
+    "url": "https://help.ui.com/hc/en-us/articles/7605005245975-UniFi-Updates",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "UniFi Roles Explained: Admins and Users",
+    "url": "https://help.ui.com/hc/en-us/articles/1500011491541-UniFi-Roles-Explained-Admins-and-Users",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "Standalone Access Points (without UniFi)",
+    "url": "https://help.ui.com/hc/en-us/articles/12594679474071-Standalone-Access-Points-without-UniFi",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "How to Reset UniFi Devices to Factory Defaults",
+    "url": "https://help.ui.com/hc/en-us/articles/205143490-How-to-Reset-UniFi-Devices-to-Factory-Defaults",
+    "section": "Getting Started with UniFi"
+  },
+  {
+    "title": "UniFi Switch Settings",
+    "url": "https://help.ui.com/hc/en-us/articles/33402927617047-UniFi-Switch-Settings",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Remote Hand-Off",
+    "url": "https://help.ui.com/hc/en-us/articles/21322311490199-Remote-Hand-Off",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Shadow Mode High Availability on UniFi Cloud Gateways",
+    "url": "https://help.ui.com/hc/en-us/articles/19581768432535-Shadow-Mode-High-Availability-on-UniFi-Cloud-Gateways",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Expanding RAID Storage Size",
+    "url": "https://help.ui.com/hc/en-us/articles/16168460106135-Expanding-RAID-Storage-Size",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Backups and Migration in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/360008976393-Backups-and-Migration-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Storage Protection and Data Redundancy in UniFi (RAID)",
+    "url": "https://help.ui.com/hc/en-us/articles/12395353544727-Storage-Protection-and-Data-Redundancy-in-UniFi-RAID",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Replacing HDD and SD Card Storage in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/12257010646679-Replacing-HDD-and-SD-Card-Storage-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Running Multiple UniFi Network Consoles on the Same Site",
+    "url": "https://help.ui.com/hc/en-us/articles/29946579238679-Running-Multiple-UniFi-Network-Consoles-on-the-Same-Site",
+    "section": "References Specifications"
+  },
+  {
+    "title": "WiFi Access Point (AP) Ceiling Mounts",
+    "url": "https://help.ui.com/hc/en-us/articles/23999079657367-WiFi-Access-Point-AP-Ceiling-Mounts",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi - DNS Troubleshooting Guide",
+    "url": "https://help.ui.com/hc/en-us/articles/17484948645015-UniFi-DNS-Troubleshooting-Guide",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Site Manager Connection Speed",
+    "url": "https://help.ui.com/hc/en-us/articles/13830811970839-Site-Manager-Connection-Speed",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi Storage Requirements and Compatibility",
+    "url": "https://help.ui.com/hc/en-us/articles/360037340954-UniFi-Storage-Requirements-and-Compatibility",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Enabling UniFi Remote Management",
+    "url": "https://help.ui.com/hc/en-us/articles/115012240067-Enabling-UniFi-Remote-Management",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Understanding Drive and Storage Health in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/12395343519639-Understanding-Drive-and-Storage-Health-in-UniFi",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Getting Started with Official UniFi Hosting",
+    "url": "https://help.ui.com/hc/en-us/articles/4415364143511-Getting-Started-with-Official-UniFi-Hosting",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Self-Hosting a UniFi Network Server",
+    "url": "https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server",
+    "section": "Self Hosted Network Server"
+  },
+  {
+    "title": "Updating Self-Hosted UniFi Network Servers",
+    "url": "https://help.ui.com/hc/en-us/articles/6330410381335-Updating-Self-Hosted-UniFi-Network-Servers",
+    "section": "Self Hosted Network Server"
+  },
+  {
+    "title": "UniFi - Repairing Database Issues on the UniFi Network Application",
+    "url": "https://help.ui.com/hc/en-us/articles/360006634094-UniFi-Repairing-Database-Issues-on-the-UniFi-Network-Application",
+    "section": "Self Hosted Network Server"
+  },
+  {
+    "title": "UniFi - Tuning the Network Application for a High Number of UniFi Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/115005159588-UniFi-Tuning-the-Network-Application-for-a-High-Number-of-UniFi-Devices",
+    "section": "Self Hosted Network Server"
+  },
+  {
+    "title": "Updating and Installing Self-Hosted UniFi Network Servers (Linux)",
+    "url": "https://help.ui.com/hc/en-us/articles/220066768-Updating-and-Installing-Self-Hosted-UniFi-Network-Servers-Linux",
+    "section": "Self Hosted Network Server"
+  },
+  {
+    "title": "Explaining the UniFi system.properties File",
+    "url": "https://help.ui.com/hc/en-us/articles/205202580-Explaining-the-UniFi-system-properties-File",
+    "section": "Self Hosted Network Server"
+  },
+  {
+    "title": "How to Uninstall the Self-Hosted UniFi Network Server",
+    "url": "https://help.ui.com/hc/en-us/articles/360015373734-How-to-Uninstall-the-Self-Hosted-UniFi-Network-Server",
+    "section": "Self Hosted Network Server"
+  },
+  {
+    "title": "Self-Hosting a UniFi Network Server as a Windows Service (Advanced)",
+    "url": "https://help.ui.com/hc/en-us/articles/205144550-Self-Hosting-a-UniFi-Network-Server-as-a-Windows-Service-Advanced",
+    "section": "Self Hosted Network Server"
+  },
+  {
+    "title": "Getting Started with UniFi Fabrics",
+    "url": "https://help.ui.com/hc/en-us/articles/30979808349463-Getting-Started-with-UniFi-Fabrics",
+    "section": "Fabrics Identity and Role Based Access Control RBAC"
+  },
+  {
+    "title": "Binding an Identity Provider (IdP) To A UniFi Fabric",
+    "url": "https://help.ui.com/hc/en-us/articles/30967924245527-Binding-an-Identity-Provider-IdP-To-A-UniFi-Fabric",
+    "section": "Fabrics Identity and Role Based Access Control RBAC"
+  },
+  {
+    "title": "Managing UniFi Fabric People, Roles, and Permissions",
+    "url": "https://help.ui.com/hc/en-us/articles/31557407384343-Managing-UniFi-Fabric-People-Roles-and-Permissions",
+    "section": "Fabrics Identity and Role Based Access Control RBAC"
+  },
+  {
+    "title": "Integrating Microsoft Entra with UniFi Fabrics",
+    "url": "https://help.ui.com/hc/en-us/articles/30968066908439-Integrating-Microsoft-Entra-with-UniFi-Fabrics",
+    "section": "Fabrics Identity and Role Based Access Control RBAC"
+  },
+  {
+    "title": "Integrating Active Directory (AD), and LDAP with UniFi Fabrics",
+    "url": "https://help.ui.com/hc/en-us/articles/26181128828055-Integrating-Active-Directory-AD-and-LDAP-with-UniFi-Fabrics",
+    "section": "Fabrics Identity and Role Based Access Control RBAC"
+  },
+  {
+    "title": "Integrating Google Workspace with UniFi Fabrics",
+    "url": "https://help.ui.com/hc/en-us/articles/30968055539607-Integrating-Google-Workspace-with-UniFi-Fabrics",
+    "section": "Fabrics Identity and Role Based Access Control RBAC"
+  },
+  {
+    "title": "UniFi Endpoint Overview",
+    "url": "https://help.ui.com/hc/en-us/articles/16936895868823-UniFi-Endpoint-Overview",
+    "section": "UniFi Endpoint"
+  },
+  {
+    "title": "Configuring UniFi Endpoint For Zero-Trust Network Access (ZTNA)",
+    "url": "https://help.ui.com/hc/en-us/articles/31557442664983-Configuring-UniFi-Endpoint-For-Zero-Trust-Network-Access-ZTNA",
+    "section": "UniFi Endpoint"
+  },
+  {
+    "title": "UniFi Endpoint User Guide",
+    "url": "https://help.ui.com/hc/en-us/articles/31557476401687-UniFi-Endpoint-User-Guide",
+    "section": "UniFi Endpoint"
+  },
+  {
+    "title": "Troubleshooting Identity One-Click WiFi",
+    "url": "https://help.ui.com/hc/en-us/articles/30030498821655-Troubleshooting-Identity-One-Click-WiFi",
+    "section": "UniFi Endpoint"
+  },
+  {
+    "title": "Troubleshooting One-Click VPN Issues",
+    "url": "https://help.ui.com/hc/en-us/articles/27900437407895-Troubleshooting-One-Click-VPN-Issues",
+    "section": "UniFi Endpoint"
+  },
+  {
+    "title": "Configuring MTU to Improve WireGuard VPN Connectivity in UniFi Identity",
+    "url": "https://help.ui.com/hc/en-us/articles/33979292652951-Configuring-MTU-to-Improve-WireGuard-VPN-Connectivity-in-UniFi-Identity",
+    "section": "UniFi Endpoint"
+  },
+  {
+    "title": "AP Antenna Radiation Patterns",
+    "url": "https://help.ui.com/hc/en-us/articles/115005212927-AP-Antenna-Radiation-Patterns",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Best Practices for Chromecast and AirPlay",
+    "url": "https://help.ui.com/hc/en-us/articles/4409866388887-Best-Practices-for-Chromecast-and-AirPlay",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Best Practices for Sonos Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/18930473041047-Best-Practices-for-Sonos-Devices",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Bluetooth APs in UniFi Network",
+    "url": "https://help.ui.com/hc/en-us/articles/10000263945111-Bluetooth-APs-in-UniFi-Network",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Broadcasting Multiple WiFi SSIDs",
+    "url": "https://help.ui.com/hc/en-us/articles/15320966415127-Broadcasting-Multiple-WiFi-SSIDs",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Comparing U-LTE and UMR Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/30915376945943-Comparing-U-LTE-and-UMR-Devices",
+    "section": "References Specifications"
+  },
+  {
+    "title": "DFS Channels",
+    "url": "https://help.ui.com/hc/en-us/articles/15510834696599-DFS-Channels",
+    "section": "References Specifications"
+  },
+  {
+    "title": "PoE Availability and Modes",
+    "url": "https://help.ui.com/hc/en-us/articles/115000263008-PoE-Availability-and-Modes",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Regions Supporting 6 GHz",
+    "url": "https://help.ui.com/hc/en-us/articles/8691786444567-Regions-Supporting-6-GHz",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Required Ports Reference",
+    "url": "https://help.ui.com/hc/en-us/articles/218506997-Required-Ports-Reference",
+    "section": "References Specifications"
+  },
+  {
+    "title": "SFP Modules and DAC Cables",
+    "url": "https://help.ui.com/hc/en-us/articles/212561258-SFP-Modules-and-DAC-Cables",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Troubleshooting Offline UniFi Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/14177743124759-Troubleshooting-Offline-UniFi-Devices",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Troubleshooting UniFi Device Connectivity",
+    "url": "https://help.ui.com/hc/en-us/articles/7258465146519-Troubleshooting-UniFi-Device-Connectivity",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Ubiquiti UniFi PCI Compliance",
+    "url": "https://help.ui.com/hc/en-us/articles/32734956721943-Ubiquiti-UniFi-PCI-Compliance",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Understanding Connectivity Roles of UDB Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/32064746398999-Understanding-Connectivity-Roles-of-UDB-Devices",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Understanding Device LED Status Indicators",
+    "url": "https://help.ui.com/hc/en-us/articles/204910134-Understanding-Device-LED-Status-Indicators",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi CyberSecure",
+    "url": "https://help.ui.com/hc/en-us/articles/30426718447639-UniFi-CyberSecure",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi CyberSecure Enhanced by Proofpoint and Cloudflare",
+    "url": "https://help.ui.com/hc/en-us/articles/25930305913751-UniFi-CyberSecure-Enhanced-by-Proofpoint-and-Cloudflare",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi WiFi SSID and AP Settings Overview",
+    "url": "https://help.ui.com/hc/en-us/articles/32065480092951-UniFi-WiFi-SSID-and-AP-Settings-Overview",
+    "section": "References Specifications"
+  },
+  {
+    "title": "WiFi Troubleshooting Guide",
+    "url": "https://help.ui.com/hc/en-us/articles/32064585817495-WiFi-Troubleshooting-Guide",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Windows Firewall Rules for UniFi Network",
+    "url": "https://help.ui.com/hc/en-us/articles/15574305780631-Windows-Firewall-Rules-for-UniFi-Network",
+    "section": "References Specifications"
+  },
+  {
+    "title": "6 GHz Extended Range & AFC in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/25707346939927-6-GHz-Extended-Range-AFC-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Best Practices: Guest WiFi",
+    "url": "https://help.ui.com/hc/en-us/articles/23948850278295-Best-Practices-Guest-WiFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Changing a Virtual Network Subnet",
+    "url": "https://help.ui.com/hc/en-us/articles/16602606163991-Changing-a-Virtual-Network-Subnet",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring MC-LAG in UniFi Network",
+    "url": "https://help.ui.com/hc/en-us/articles/19133507506711-Configuring-MC-LAG-in-UniFi-Network",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Considerations for Optimal Wireless Mesh Networks",
+    "url": "https://help.ui.com/hc/en-us/articles/115002262328-Considerations-for-Optimal-Wireless-Mesh-Networks",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Creating UniFi WiFi SSIDs",
+    "url": "https://help.ui.com/hc/en-us/articles/26136823938583-Creating-UniFi-WiFi-SSIDs",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Creating Virtual Networks (VLANs)",
+    "url": "https://help.ui.com/hc/en-us/articles/9761080275607-Creating-Virtual-Networks-VLANs",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Ensure Your IoT Devices Work with WiFi 7 on U7 Access Points",
+    "url": "https://help.ui.com/hc/en-us/articles/27053048844055-Ensure-Your-IoT-Devices-Work-with-WiFi-7-on-U7-Access-Points",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Flow Control",
+    "url": "https://help.ui.com/hc/en-us/articles/26884644878615-Flow-Control",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Getting Started with 6 GHz",
+    "url": "https://help.ui.com/hc/en-us/articles/20407971377815-Getting-Started-with-6-GHz",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Implementing Network and Client Isolation in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/18965560820247-Implementing-Network-and-Client-Isolation-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Jumbo Frames",
+    "url": "https://help.ui.com/hc/en-us/articles/18039891529879-Jumbo-Frames",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Maximizing Wireless Speeds",
+    "url": "https://help.ui.com/hc/en-us/articles/360012947634-Maximizing-Wireless-Speeds",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Multi-Link Operation (MLO) in UniFi Network",
+    "url": "https://help.ui.com/hc/en-us/articles/25656226682775-Multi-Link-Operation-MLO-in-UniFi-Network",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Optimizing WiFi Connectivity and Reducing Latency",
+    "url": "https://help.ui.com/hc/en-us/articles/221029967-Optimizing-WiFi-Connectivity-and-Reducing-Latency",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Optimizing Wired Network Speeds",
+    "url": "https://help.ui.com/hc/en-us/articles/6949005136919-Optimizing-Wired-Network-Speeds",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Power Redundancy",
+    "url": "https://help.ui.com/hc/en-us/articles/360042834933-Power-Redundancy",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Pro AV Traffic Optimization on UniFi Switches",
+    "url": "https://help.ui.com/hc/en-us/articles/18125733726615-Pro-AV-Traffic-Optimization-on-UniFi-Switches",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Setting Up Passpoint on UniFi Network",
+    "url": "https://help.ui.com/hc/en-us/articles/25473982758551-Setting-Up-Passpoint-on-UniFi-Network",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "SNMP Monitoring in UniFi Network",
+    "url": "https://help.ui.com/hc/en-us/articles/33502980942615-SNMP-Monitoring-in-UniFi-Network",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Switch Port VLAN Assignment (Trunk & Access Ports)",
+    "url": "https://help.ui.com/hc/en-us/articles/26136855808919-Switch-Port-VLAN-Assignment-Trunk-Access-Ports",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Traffic Flows and Traffic Logging in UniFi Network",
+    "url": "https://help.ui.com/hc/en-us/articles/32201256219799-Traffic-Flows-and-Traffic-Logging-in-UniFi-Network",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Unable to Connect to WiFi",
+    "url": "https://help.ui.com/hc/en-us/articles/23283660456599-Unable-to-Connect-to-WiFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Understand and Mitigate Network Loops (STP)",
+    "url": "https://help.ui.com/hc/en-us/articles/24292724428311-Understand-and-Mitigate-Network-Loops-STP",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Channel AI and Automated WiFi Optimization",
+    "url": "https://help.ui.com/hc/en-us/articles/37367741854743-UniFi-Channel-AI-and-Automated-WiFi-Optimization",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Hotspots and Captive Portals",
+    "url": "https://help.ui.com/hc/en-us/articles/115000166827-UniFi-Hotspots-and-Captive-Portals",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi QoS and Traffic Shaping",
+    "url": "https://help.ui.com/hc/en-us/articles/204911354-UniFi-QoS-and-Traffic-Shaping",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Switches and Access Control Lists (ACLs)",
+    "url": "https://help.ui.com/hc/en-us/articles/23352709241495-UniFi-Switches-and-Access-Control-Lists-ACLs",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi USB-C and Thunderbolt Ethernet Adapters (5G & 10G)",
+    "url": "https://help.ui.com/hc/en-us/articles/30604639280919-UniFi-USB-C-and-Thunderbolt-Ethernet-Adapters-5G-10G",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi WiFi Agent: Easily Diagnose and Fix Common WiFi Issues",
+    "url": "https://help.ui.com/hc/en-us/articles/31628490448151-UniFi-WiFi-Agent-Easily-Diagnose-and-Fix-Common-WiFi-Issues",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Adding SSH Keys to UniFi Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/235247068-Adding-SSH-Keys-to-UniFi-Devices",
+    "section": "Advanced"
+  },
+  {
+    "title": "Advanced Logging Information",
+    "url": "https://help.ui.com/hc/en-us/articles/204959834-Advanced-Logging-Information",
+    "section": "Advanced"
+  },
+  {
+    "title": "Duplicate IP Addresses and Rogue DHCP Servers",
+    "url": "https://help.ui.com/hc/en-us/articles/19154105498007-Duplicate-IP-Addresses-and-Rogue-DHCP-Servers",
+    "section": "Advanced"
+  },
+  {
+    "title": "Layer 3 Routing",
+    "url": "https://help.ui.com/hc/en-us/articles/360042281174-Layer-3-Routing",
+    "section": "Advanced"
+  },
+  {
+    "title": "MAC Address Restricting",
+    "url": "https://help.ui.com/hc/en-us/articles/18565355579799-MAC-Address-Restricting",
+    "section": "Advanced"
+  },
+  {
+    "title": "MAC-Based VLAN Assignment Using 802.1x in UniFi Network",
+    "url": "https://help.ui.com/hc/en-us/articles/115004589707-MAC-Based-VLAN-Assignment-Using-802-1x-in-UniFi-Network",
+    "section": "Advanced"
+  },
+  {
+    "title": "Managing Broadcast Traffic with UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/27384925962647-Managing-Broadcast-Traffic-with-UniFi",
+    "section": "Advanced"
+  },
+  {
+    "title": "Port Aggregation FAQs",
+    "url": "https://help.ui.com/hc/en-us/articles/360007279753-Port-Aggregation-FAQs",
+    "section": "Advanced"
+  },
+  {
+    "title": "Remote Adoption (Layer 3)",
+    "url": "https://help.ui.com/hc/en-us/articles/204909754-Remote-Adoption-Layer-3",
+    "section": "Advanced"
+  },
+  {
+    "title": "Resolving Wi-Fi Performance Issues Due to High Airtime Utilization",
+    "url": "https://help.ui.com/hc/en-us/articles/30266615758743-Resolving-Wi-Fi-Performance-Issues-Due-to-High-Airtime-Utilization",
+    "section": "Advanced"
+  },
+  {
+    "title": "Troubleshooting 10GbE Connectivity Issues on Apple Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/23608163530007-Troubleshooting-10GbE-Connectivity-Issues-on-Apple-Devices",
+    "section": "Advanced"
+  },
+  {
+    "title": "Understanding and Implementing Minimum RSSI",
+    "url": "https://help.ui.com/hc/en-us/articles/221321728-Understanding-and-Implementing-Minimum-RSSI",
+    "section": "Advanced"
+  },
+  {
+    "title": "UniFi DHCP Server",
+    "url": "https://help.ui.com/hc/en-us/articles/360012097513-UniFi-DHCP-Server",
+    "section": "Advanced"
+  },
+  {
+    "title": "UniFi Isolated Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/16230412350487-UniFi-Isolated-Devices",
+    "section": "Advanced"
+  },
+  {
+    "title": "UniFi Zero-Touch Provisioning (ZTP) and Device Replacement",
+    "url": "https://help.ui.com/hc/en-us/articles/23954985107351-UniFi-Zero-Touch-Provisioning-ZTP-and-Device-Replacement",
+    "section": "Advanced"
+  },
+  {
+    "title": "An Overview of High Availability in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/30297446527767-An-Overview-of-High-Availability-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Application Filtering in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/28314415752727-Application-Filtering-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring a RADIUS Server in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/360015268353-Configuring-a-RADIUS-Server-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring IPv6 in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/36378535649687-Configuring-IPv6-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Content and Domain Filtering in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/12568927589143-Content-and-Domain-Filtering-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "DNAT, SNAT, and Masquerading in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/16437942532759-DNAT-SNAT-and-Masquerading-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Hairpin NAT in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/30202160464023-Hairpin-NAT-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Migrating to Zone-Based Firewalls in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/28223082254743-Migrating-to-Zone-Based-Firewalls-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Setting Up Public Access to Local Resources in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/30076583334935-Setting-Up-Public-Access-to-Local-Resources-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Traffic & Policy Management in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/5546542486551-Traffic-Policy-Management-in-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi - Border Gateway Protocol (BGP)",
+    "url": "https://help.ui.com/hc/en-us/articles/16271338193559-UniFi-Border-Gateway-Protocol-BGP",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi 5G and LTE Backup Best Practices",
+    "url": "https://help.ui.com/hc/en-us/articles/29887153953559-UniFi-5G-and-LTE-Backup-Best-Practices",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi DNS Records and Local Hostnames",
+    "url": "https://help.ui.com/hc/en-us/articles/15179064940439-UniFi-DNS-Records-and-Local-Hostnames",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Ad Blocking",
+    "url": "https://help.ui.com/hc/en-us/articles/9794438523799-UniFi-Gateway-Ad-Blocking",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Advanced Firewall Rules",
+    "url": "https://help.ui.com/hc/en-us/articles/27699646208279-UniFi-Gateway-Advanced-Firewall-Rules",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Country Restriction",
+    "url": "https://help.ui.com/hc/en-us/articles/12567758783383-UniFi-Gateway-Country-Restriction",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Dynamic DNS",
+    "url": "https://help.ui.com/hc/en-us/articles/9203184738583-UniFi-Gateway-Dynamic-DNS",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Honeypot",
+    "url": "https://help.ui.com/hc/en-us/articles/12569193992727-UniFi-Gateway-Honeypot",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - IGMP Proxy (IPTV)",
+    "url": "https://help.ui.com/hc/en-us/articles/14957610078615-UniFi-Gateway-IGMP-Proxy-IPTV",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Intrusion Detection and Prevention (IDS/IPS)",
+    "url": "https://help.ui.com/hc/en-us/articles/360006893234-UniFi-Gateway-Intrusion-Detection-and-Prevention-IDS-IPS",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Multicast DNS",
+    "url": "https://help.ui.com/hc/en-us/articles/12648701398807-UniFi-Gateway-Multicast-DNS",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - NeXT AI SSL Traffic Inspection",
+    "url": "https://help.ui.com/hc/en-us/articles/18068491373975-UniFi-Gateway-NeXT-AI-SSL-Traffic-Inspection",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - OSPF (Advanced)",
+    "url": "https://help.ui.com/hc/en-us/articles/12115251061143-UniFi-Gateway-OSPF-Advanced",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Policy-Based Routing",
+    "url": "https://help.ui.com/hc/en-us/articles/12566175125783-UniFi-Gateway-Policy-Based-Routing",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Port Forwarding",
+    "url": "https://help.ui.com/hc/en-us/articles/235723207-UniFi-Gateway-Port-Forwarding",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Port Remapping",
+    "url": "https://help.ui.com/hc/en-us/articles/360008365334-UniFi-Gateway-Port-Remapping",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Smart Queues",
+    "url": "https://help.ui.com/hc/en-us/articles/12648661321367-UniFi-Gateway-Smart-Queues",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Static IPv6 and DHCPv6 Prefix Delegation",
+    "url": "https://help.ui.com/hc/en-us/articles/115005868927-UniFi-Gateway-Static-IPv6-and-DHCPv6-Prefix-Delegation",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Traffic and Device Identification",
+    "url": "https://help.ui.com/hc/en-us/articles/12570783535383-UniFi-Gateway-Traffic-and-Device-Identification",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - UPnP",
+    "url": "https://help.ui.com/hc/en-us/articles/12648697125783-UniFi-Gateway-UPnP",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Gateway - Setting Up SD-WAN with UniFi Site Magic",
+    "url": "https://help.ui.com/hc/en-us/articles/16750417515159-UniFi-Gateway-Setting-Up-SD-WAN-with-UniFi-Site-Magic",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - Introduction to VPNs",
+    "url": "https://help.ui.com/hc/en-us/articles/7951513517079-UniFi-Gateway-Introduction-to-VPNs",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - L2TP VPN Server",
+    "url": "https://help.ui.com/hc/en-us/articles/12594825307927-UniFi-Gateway-L2TP-VPN-Server",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - OpenVPN Client",
+    "url": "https://help.ui.com/hc/en-us/articles/12648654915863-UniFi-Gateway-OpenVPN-Client",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - OpenVPN Server",
+    "url": "https://help.ui.com/hc/en-us/articles/12600064355991-UniFi-Gateway-OpenVPN-Server",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - OpenVPN Site-to-Site",
+    "url": "https://help.ui.com/hc/en-us/articles/12646699585047-UniFi-Gateway-OpenVPN-Site-to-Site",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - Site-to-Site IPsec VPN",
+    "url": "https://help.ui.com/hc/en-us/articles/360002426234-UniFi-Gateway-Site-to-Site-IPsec-VPN",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - Site-to-Site IPsec VPN with Third-Party Gateways (Advanced)",
+    "url": "https://help.ui.com/hc/en-us/articles/7983431932439-UniFi-Gateway-Site-to-Site-IPsec-VPN-with-Third-Party-Gateways-Advanced",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - Teleport VPN",
+    "url": "https://help.ui.com/hc/en-us/articles/5246403561495-UniFi-Gateway-Teleport-VPN",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - WireGuard VPN Client",
+    "url": "https://help.ui.com/hc/en-us/articles/16357883221015-UniFi-Gateway-WireGuard-VPN-Client",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "UniFi Gateway - WireGuard VPN Server",
+    "url": "https://help.ui.com/hc/en-us/articles/115005445768-UniFi-Gateway-WireGuard-VPN-Server",
+    "section": "VPN Configurations"
+  },
+  {
+    "title": "Getting Started with UniFi Protect",
+    "url": "https://help.ui.com/hc/en-us/articles/27878858632599-Getting-Started-with-UniFi-Protect",
+    "section": "References Specifications"
+  },
+  {
+    "title": "How UniFi Protect Protects Your Data",
+    "url": "https://help.ui.com/hc/en-us/articles/31234972188951-How-UniFi-Protect-Protects-Your-Data",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi Protect - Supported Camera Limits",
+    "url": "https://help.ui.com/hc/en-us/articles/360063280653-UniFi-Protect-Supported-Camera-Limits",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Migrating Cameras Between NVRs",
+    "url": "https://help.ui.com/hc/en-us/articles/19118654419607-Migrating-Cameras-Between-NVRs",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi Device IP and IK Ratings",
+    "url": "https://help.ui.com/hc/en-us/articles/14168456775831-UniFi-Device-IP-and-IK-Ratings",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi AI Key Setup and FAQs",
+    "url": "https://help.ui.com/hc/en-us/articles/29221435686039-UniFi-AI-Key-Setup-and-FAQs",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi SuperLink Setup and FAQs",
+    "url": "https://help.ui.com/hc/en-us/articles/29711478053911-UniFi-SuperLink-Setup-and-FAQs",
+    "section": "References Specifications"
+  },
+  {
+    "title": "How to Adopt UP-Sense",
+    "url": "https://help.ui.com/hc/en-us/articles/29946776438807-How-to-Adopt-UP-Sense",
+    "section": "References Specifications"
+  },
+  {
+    "title": "UniFi Protect - Set Up Your Doorbell",
+    "url": "https://help.ui.com/hc/en-us/articles/4999240734103-UniFi-Protect-Set-Up-Your-Doorbell",
+    "section": "References Specifications"
+  },
+  {
+    "title": "AI-LPR Setup in UniFi Protect",
+    "url": "https://help.ui.com/hc/en-us/articles/29457139215511-AI-LPR-Setup-in-UniFi-Protect",
+    "section": "References Specifications"
+  },
+  {
+    "title": "Managing Storage and Retention in UniFi Protect",
+    "url": "https://help.ui.com/hc/en-us/articles/29393161732119-Managing-Storage-and-Retention-in-UniFi-Protect",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Build Incident Reports with UniFi Case Manager",
+    "url": "https://help.ui.com/hc/en-us/articles/29376378006167-Build-Incident-Reports-with-UniFi-Case-Manager",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Protect AI Port FAQs",
+    "url": "https://help.ui.com/hc/en-us/articles/28315005177239-Protect-AI-Port-FAQs",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Protect Recording Modes & Schedules",
+    "url": "https://help.ui.com/hc/en-us/articles/27723320017815-UniFi-Protect-Recording-Modes-Schedules",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Alarm Manager - Customize Alerts, Integrations, and Automations Across UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/27721287753239-UniFi-Alarm-Manager-Customize-Alerts-Integrations-and-Automations-Across-UniFi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Vantage Point: Multi-NVR Camera Management",
+    "url": "https://help.ui.com/hc/en-us/articles/27719500615959-UniFi-Vantage-Point-Multi-NVR-Camera-Management",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Send UniFi Protect Alerts to Web Services using Webhooks",
+    "url": "https://help.ui.com/hc/en-us/articles/25478744592023-Send-UniFi-Protect-Alerts-to-Web-Services-using-Webhooks",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Send UniFi Protect Alerts to Slack with Webhooks",
+    "url": "https://help.ui.com/hc/en-us/articles/25361407516311-Send-UniFi-Protect-Alerts-to-Slack-with-Webhooks",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UNVR Stacking",
+    "url": "https://help.ui.com/hc/en-us/articles/14881658961303-UNVR-Stacking",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Protect - Two-Way Camera Audio",
+    "url": "https://help.ui.com/hc/en-us/articles/13731164684951-UniFi-Protect-Two-Way-Camera-Audio",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Optimizing Camera Connectivity in UniFi Protect",
+    "url": "https://help.ui.com/hc/en-us/articles/360034238233-Optimizing-Camera-Connectivity-in-UniFi-Protect",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Protect Cameras - AI Detections and Facial Recognition",
+    "url": "https://help.ui.com/hc/en-us/articles/360058867233-UniFi-Protect-Cameras-AI-Detections-and-Facial-Recognition",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Protect - Manage Camera Zones",
+    "url": "https://help.ui.com/hc/en-us/articles/360056987954-UniFi-Protect-Manage-Camera-Zones",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Protect - Configure Location-Based Notifications",
+    "url": "https://help.ui.com/hc/en-us/articles/360037982314-UniFi-Protect-Configure-Location-Based-Notifications",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Protect - Optimizing Night Mode",
+    "url": "https://help.ui.com/hc/en-us/articles/1500008633161-UniFi-Protect-Optimizing-Night-Mode",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Call Settings in UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/29571521349655-Configuring-Call-Settings-in-UniFi-Talk",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Getting Started with UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/27057211577751-Getting-Started-with-UniFi-Talk",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Managing Call Logs in UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/27060726541975-Managing-Call-Logs-in-UniFi-Talk",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Making Calls and Managing Activity in UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/27057446509591-Making-Calls-and-Managing-Activity-in-UniFi-Talk",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Assigning Devices and Phone Numbers to Users in UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/27057338419351-Assigning-Devices-and-Phone-Numbers-to-Users-in-UniFi-Talk",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Configuring Smart Attendant in UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/27057406675351-Configuring-Smart-Attendant-in-UniFi-Talk",
+    "section": "Getting Started"
+  },
+  {
+    "title": "A2P 10DLC Campaign Approval Requirements",
+    "url": "https://help.ui.com/hc/en-us/articles/22985353540119-A2P-10DLC-Campaign-Approval-Requirements",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Adding a Third-Party SIP Provider to UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/18020323453847-Adding-a-Third-Party-SIP-Provider-to-UniFi-Talk",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Live User Statuses (BLF) in UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/32521434925463-Live-User-Statuses-BLF-in-UniFi-Talk",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Manage UniFi Talk Subscriptions",
+    "url": "https://help.ui.com/hc/en-us/articles/360058776614-Manage-UniFi-Talk-Subscriptions",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Paging in UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/29477185391255-Paging-in-UniFi-Talk",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Recovering and Troubleshooting UniFi Talk Installations",
+    "url": "https://help.ui.com/hc/en-us/articles/27061316960663-Recovering-and-Troubleshooting-UniFi-Talk-Installations",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Setting Availability, Redirection and Do Not Disturb Status in UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/29486248659991-Setting-Availability-Redirection-and-Do-Not-Disturb-Status-in-UniFi-Talk",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Transferring Ownership of UniFi Talk",
+    "url": "https://help.ui.com/hc/en-us/articles/29486916055191-Transferring-Ownership-of-UniFi-Talk",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Talk - Number Porting",
+    "url": "https://help.ui.com/hc/en-us/articles/4407676051351-UniFi-Talk-Number-Porting",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Talk Remote Workforce with Teleport VPN",
+    "url": "https://help.ui.com/hc/en-us/articles/29488591687959-UniFi-Talk-Remote-Workforce-with-Teleport-VPN",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Talk Voicemail Options",
+    "url": "https://help.ui.com/hc/en-us/articles/29571415655191-UniFi-Talk-Voicemail-Options",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Using the UniFi Talk Softphone",
+    "url": "https://help.ui.com/hc/en-us/articles/27791888654871-Using-the-UniFi-Talk-Softphone",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Integrating Lutron Processors with UniFi Connect",
+    "url": "https://help.ui.com/hc/en-us/articles/25676801827479-Integrating-Lutron-Processors-with-UniFi-Connect",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Connect - EV Station Load Management",
+    "url": "https://help.ui.com/hc/en-us/articles/23692397956631-UniFi-Connect-EV-Station-Load-Management",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Remotely Adopting EV Station and Display Cast in UniFi Connect",
+    "url": "https://help.ui.com/hc/en-us/articles/23692388802839-Remotely-Adopting-EV-Station-and-Display-Cast-in-UniFi-Connect",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Presenting Media Content Using UniFi Connect",
+    "url": "https://help.ui.com/hc/en-us/articles/23407622707735-Presenting-Media-Content-Using-UniFi-Connect",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Getting Started with UniFi Connect",
+    "url": "https://help.ui.com/hc/en-us/articles/21171115391255-Getting-Started-with-UniFi-Connect",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Managing EV Stations in UniFi Connect",
+    "url": "https://help.ui.com/hc/en-us/articles/21170042012439-Managing-EV-Stations-in-UniFi-Connect",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Connect - Create Automations",
+    "url": "https://help.ui.com/hc/en-us/articles/20643904516247--UniFi-Connect-Create-Automations",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Connect - Collect Payment for EV Charging",
+    "url": "https://help.ui.com/hc/en-us/articles/20643869756951-UniFi-Connect-Collect-Payment-for-EV-Charging",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Connect - Stream YouTube Content to Displays",
+    "url": "https://help.ui.com/hc/en-us/articles/19545148603031-UniFi-Connect-Stream-YouTube-Content-to-Displays",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Connect - Automatically Control Display with Cast",
+    "url": "https://help.ui.com/hc/en-us/articles/12825727969815-UniFi-Connect-Automatically-Control-Display-with-Cast",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Connect - Using Android Apps on your UC Display",
+    "url": "https://help.ui.com/hc/en-us/articles/10775946997655-UniFi-Connect-Using-Android-Apps-on-your-UC-Display",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Getting Started with UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/17452334269975-Getting-Started-with-UniFi-Access",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Secure, Reliable, and UL 294-Compliant Door Access Control with UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/24999589457175-Secure-Reliable-and-UL-294-Compliant-Door-Access-Control-with-UniFi-Access",
+    "section": "Getting Started"
+  },
+  {
+    "title": "UniFi Consoles with UniFi Access Support",
+    "url": "https://help.ui.com/hc/en-us/articles/22230509487639-UniFi-Consoles-with-UniFi-Access-Support",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Choosing a UniFi Access Control Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/23964054398871-Choosing-a-UniFi-Access-Control-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Choosing a UniFi Access Reader",
+    "url": "https://help.ui.com/hc/en-us/articles/25849483463959-Choosing-a-UniFi-Access-Reader",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Choosing a UniFi Access Lock",
+    "url": "https://help.ui.com/hc/en-us/articles/25740782409495-Choosing-a-UniFi-Access-Lock",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Choosing UniFi Access Reader Mounts and Junction Boxes",
+    "url": "https://help.ui.com/hc/en-us/articles/26088780870807-Choosing-UniFi-Access-Reader-Mounts-and-Junction-Boxes",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Understanding UniFi Access Device LED Status Indicators",
+    "url": "https://help.ui.com/hc/en-us/articles/25738084762775-Understanding-UniFi-Access-Device-LED-Status-Indicators",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Understanding UniFi Access Control Hub Input and Output Terminals",
+    "url": "https://help.ui.com/hc/en-us/articles/25689847509783-Understanding-UniFi-Access-Control-Hub-Input-and-Output-Terminals",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Configuring UniFi Access Control Hub Terminals",
+    "url": "https://help.ui.com/hc/en-us/articles/29703866324887-Configuring-UniFi-Access-Control-Hub-Terminals",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Wiring a Door Lock to the UniFi Access Control Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/29235668332055-Wiring-a-Door-Lock-to-the-UniFi-Access-Control-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Wiring a Door Operator to the UniFi Access Control Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/25741254711575-Wiring-a-Door-Operator-to-the-UniFi-Access-Control-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Wiring Exit and Entry Request Devices to the UniFi Access Control Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/25769197902615-Wiring-Exit-and-Entry-Request-Devices-to-the-UniFi-Access-Control-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Wiring a Door Position Sensor to the UniFi Access Control Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/25795833795223-Wiring-a-Door-Position-Sensor-to-the-UniFi-Access-Control-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Wiring a Siren and Chime to the UniFi Access Control Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/26288346873367-Wiring-a-Siren-and-Chime-to-the-UniFi-Access-Control-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Wiring a Gate and Pedestrian Side Door to the UniFi Access Gate Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/23991154602263-Wiring-a-Gate-and-Pedestrian-Side-Door-to-the-UniFi-Access-Gate-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Introducing UniFi Access Gate Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/24253680435735-Introducing-UniFi-Access-Gate-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Installing Entrapment Protection Devices for the UniFi Access Gate Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/25011259053079-Installing-Entrapment-Protection-Devices-for-the-UniFi-Access-Gate-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Configuring UniFi Access Gate Hub Terminals",
+    "url": "https://help.ui.com/hc/en-us/articles/29954515191575-Configuring-UniFi-Access-Gate-Hub-Terminals",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Configuring UniFi Access Elevator Hub",
+    "url": "https://help.ui.com/hc/en-us/articles/20050307166231-Configuring-UniFi-Access-Elevator-Hub",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Configuring the UniFi Retrofit Hub in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/34338807702679-Configuring-the-UniFi-Retrofit-Hub-in-UniFi-Access",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Pairing UniFi Access and Protect Devices for Door Monitoring",
+    "url": "https://help.ui.com/hc/en-us/articles/18781917574423-Pairing-UniFi-Access-and-Protect-Devices-for-Door-Monitoring",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Configuring UniFi Access Intercom Viewer",
+    "url": "https://help.ui.com/hc/en-us/articles/22255984469271-Configuring-UniFi-Access-Intercom-Viewer",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Assigning UniFi Access Devices to a Separate VLAN",
+    "url": "https://help.ui.com/hc/en-us/articles/17785698254999-Assigning-UniFi-Access-Devices-to-a-Separate-VLAN",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Understanding UniFi Door Closer",
+    "url": "https://help.ui.com/hc/en-us/articles/30988768775191-Understanding-UniFi-Door-Closer",
+    "section": "Getting Started"
+  },
+  {
+    "title": "Configuring Access Policies and Schedules in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/17784610114199-Configuring-Access-Policies-and-Schedules-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Activating Emergency Mode in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/17784702059415-Activating-Emergency-Mode-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Visitor Schedules in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/29026499254935-Configuring-Visitor-Schedules-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Door Unlock Schedules in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/17458654970007-Configuring-Door-Unlock-Schedules-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Door Attendants in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/18569868403735-Configuring-Door-Attendants-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Doorbell Call Methods and Receivers in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/25095707427863-Configuring-Doorbell-Call-Methods-and-Receivers-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Third-Party SIP Server with UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/31504711305879-Configuring-Third-Party-SIP-Server-with-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Triggering Doorbells Using UniFi Access Readers",
+    "url": "https://help.ui.com/hc/en-us/articles/29057445047959-Triggering-Doorbells-Using-UniFi-Access-Readers",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Unlock Event Recording in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/17784650601111-Configuring-Unlock-Event-Recording-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Door Unlock Methods in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/17459303874327-Configuring-Door-Unlock-Methods-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Touch Pass in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/27130425853079-Configuring-Touch-Pass-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Face Unlock in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/26235114109079-Configuring-Face-Unlock-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring Mobile Unlock in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/29027993126679-Configuring-Mobile-Unlock-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring NFC Cards in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/29027025185175-Configuring-NFC-Cards-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring PIN Unlock in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/29027022553239-Configuring-PIN-Unlock-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Configuring License Plate Unlock in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/23903814413335-Configuring-License-Plate-Unlock-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Unlocking Doors with Mobile Unlock in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/29028006615703-Unlocking-Doors-with-Mobile-Unlock-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Unlocking Doors with QR Code in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/29026995210775-Unlocking-Doors-with-QR-Code-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Unlocking Doors with Facial Recognition in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/28265450782103-Unlocking-Doors-with-Facial-Recognition-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Unlocking Doors with Touch Pass in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/27266159384087-Unlocking-Doors-with-Touch-Pass-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Unlocking Gates with License Plate Recognition in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/28494739821591-Unlocking-Gates-with-License-Plate-Recognition-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Checking in with the Self-Service Kiosk in UniFi Access",
+    "url": "https://help.ui.com/hc/en-us/articles/33816299480983-Checking-in-with-the-Self-Service-Kiosk-in-UniFi-Access",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Using Active Directory Credentials for SMB Access in UniFi Drive",
+    "url": "https://help.ui.com/hc/en-us/articles/34859891876503-Using-Active-Directory-Credentials-for-SMB-Access-in-UniFi-Drive",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Adding SSD Cache on UNAS Pro 8",
+    "url": "https://help.ui.com/hc/en-us/articles/34801264699927-Adding-SSD-Cache-on-UNAS-Pro-8",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Backing Up UNAS Data to Amazon S3, Backblaze B2, and Wasabi",
+    "url": "https://help.ui.com/hc/en-us/articles/34256403025047-Backing-Up-UNAS-Data-to-Amazon-S3-Backblaze-B2-and-Wasabi",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Understanding System Data & Others in UniFi Drive",
+    "url": "https://help.ui.com/hc/en-us/articles/33317752912919-Understanding-System-Data-Others-in-UniFi-Drive",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Understanding UniFi Drive Storage Pools and RAID Groups",
+    "url": "https://help.ui.com/hc/en-us/articles/32705970278551-Understanding-UniFi-Drive-Storage-Pools-and-RAID-Groups",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Troubleshooting UNAS Data Backup Issues",
+    "url": "https://help.ui.com/hc/en-us/articles/30961935781655-Troubleshooting-UNAS-Data-Backup-Issues",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Optimizing Your UNAS for High-Speed Performance and Efficient Storage",
+    "url": "https://help.ui.com/hc/en-us/articles/30360368435479-Optimizing-Your-UNAS-for-High-Speed-Performance-and-Efficient-Storage",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Migrating Data Between UNAS Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/28395402464663-Migrating-Data-Between-UNAS-Devices",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "macOS Time Machine Backups on UNAS",
+    "url": "https://help.ui.com/hc/en-us/articles/17299776030999-macOS-Time-Machine-Backups-on-UNAS",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Drive - Add UniFi Drive to Your Desktop via SMB",
+    "url": "https://help.ui.com/hc/en-us/articles/14276882157975-UniFi-Drive-Add-UniFi-Drive-to-Your-Desktop-via-SMB",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "UniFi Drive - Access Your UniFi Drive from Linux Desktop Using NFS",
+    "url": "https://help.ui.com/hc/en-us/articles/26277250895895-UniFi-Drive-Access-Your-UniFi-Drive-from-Linux-Desktop-Using-NFS",
+    "section": "Features Configuration"
+  },
+  {
+    "title": "Upgrading to UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/17279454744343-Upgrading-to-UID-Enterprise",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "Explore the New User Interface of UID Enterprise Manager",
+    "url": "https://help.ui.com/hc/en-us/articles/17106440987159-Explore-the-New-User-Interface-of-UID-Enterprise-Manager",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "Managing Your UniFi Consoles and UID Enterprise Agent",
+    "url": "https://help.ui.com/hc/en-us/articles/17106997663895-Managing-Your-UniFi-Consoles-and-UID-Enterprise-Agent",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Manage Workspace Settings",
+    "url": "https://help.ui.com/hc/en-us/articles/18488917755543-UID-Enterprise-Manage-Workspace-Settings",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Downgrade UID Enterprise to UniFi Identity",
+    "url": "https://help.ui.com/hc/en-us/articles/20099439497367-UID-Enterprise-Downgrade-UID-Enterprise-to-UniFi-Identity",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise and UID Enterprise Endpoints",
+    "url": "https://help.ui.com/hc/en-us/articles/17309160879127-UID-Enterprise-and-UID-Enterprise-Endpoints",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Add and Manage Users",
+    "url": "https://help.ui.com/hc/en-us/articles/17315489687703-UID-Enterprise-Add-and-Manage-Users",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Admin Role Configuration",
+    "url": "https://help.ui.com/hc/en-us/articles/17367151232407-UID-Enterprise-Admin-Role-Configuration",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Groups",
+    "url": "https://help.ui.com/hc/en-us/articles/17342500481943-UID-Enterprise-Groups",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Enable Door Access and Manage Its Features",
+    "url": "https://help.ui.com/hc/en-us/articles/17169607716375-UID-Enterprise-Enable-Door-Access-and-Manage-Its-Features",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - One-Click WiFi",
+    "url": "https://help.ui.com/hc/en-us/articles/17169852687639-UID-Enterprise-One-Click-WiFi",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - One-Click VPN",
+    "url": "https://help.ui.com/hc/en-us/articles/17197288467095-UID-Enterprise-One-Click-VPN",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Manage IoT WiFi and IoT Devices",
+    "url": "https://help.ui.com/hc/en-us/articles/17195643697815-UID-Enterprise-Manage-IoT-WiFi-and-IoT-Devices",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Troubleshoot WiFi Issues and FAQ",
+    "url": "https://help.ui.com/hc/en-us/articles/17196782820247-UID-Enterprise-Troubleshoot-WiFi-Issues-and-FAQ",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "Troubleshooting UID Enterprise One-Click VPN",
+    "url": "https://help.ui.com/hc/en-us/articles/17198673056151-Troubleshooting-UID-Enterprise-One-Click-VPN",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Protect Camera Sharing",
+    "url": "https://help.ui.com/hc/en-us/articles/17278052370327-UID-Enterprise-Protect-Camera-Sharing",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - EV Stations",
+    "url": "https://help.ui.com/hc/en-us/articles/18488854010391-UID-Enterprise-EV-Stations",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Configure MFA Methods",
+    "url": "https://help.ui.com/hc/en-us/articles/17343059856279-UID-Enterprise-Configure-MFA-Methods",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Recovery Code",
+    "url": "https://help.ui.com/hc/en-us/articles/17343347726743-UID-Enterprise-Recovery-Code",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Reset MFA",
+    "url": "https://help.ui.com/hc/en-us/articles/17343429996183-UID-Enterprise-Reset-MFA",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Attendance",
+    "url": "https://help.ui.com/hc/en-us/articles/18487229274135-UID-Enterprise-Attendance",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Workflows & Approvals",
+    "url": "https://help.ui.com/hc/en-us/articles/17368222347927-UID-Enterprise-Workflows-Approvals",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Manage Organization Chart",
+    "url": "https://help.ui.com/hc/en-us/articles/17367551947799-UID-Enterprise-Manage-Organization-Chart",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Notice",
+    "url": "https://help.ui.com/hc/en-us/articles/19024119752087-UID-Enterprise-Notice",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Helpdesk",
+    "url": "https://help.ui.com/hc/en-us/articles/18116271784215-UID-Enterprise-Helpdesk",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Layout",
+    "url": "https://help.ui.com/hc/en-us/articles/18115373633047-UID-Enterprise-Layout",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Plan and Billing",
+    "url": "https://help.ui.com/hc/en-us/articles/18114884352663-UID-Enterprise-Plan-and-Billing",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Export Support Files",
+    "url": "https://help.ui.com/hc/en-us/articles/18754996573591-UID-Enterprise-Export-Support-Files",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "Configuring Touch Pass in UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/27702627294359-Configuring-Touch-Pass-in-UID-Enterprise",
+    "section": "Admin Guide Features Configuration"
+  },
+  {
+    "title": "UID Enterprise - Integrate AD with UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/16852702950679-UID-Enterprise-Integrate-AD-with-UID-Enterprise",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Integrate LDAP with UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/17312352413719-UID-Enterprise-Integrate-LDAP-with-UID-Enterprise",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Configure AD/LDAP Provisioning and Integration Settings",
+    "url": "https://help.ui.com/hc/en-us/articles/17310367887767-UID-Enterprise-Configure-AD-LDAP-Provisioning-and-Integration-Settings",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Import AD/LDAP Users to UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/17310730329751-UID-Enterprise-Import-AD-LDAP-Users-to-UID-Enterprise",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Streamline AD/LDAP User Imports with Profile and Lifecycle Management",
+    "url": "https://help.ui.com/hc/en-us/articles/26476290604567-UID-Enterprise-Streamline-AD-LDAP-User-Imports-with-Profile-and-Lifecycle-Management",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Import Users from Google Workspace, Microsoft 365, CSV File, or UniFi OS",
+    "url": "https://help.ui.com/hc/en-us/articles/17310904147863-UID-Enterprise-Import-Users-from-Google-Workspace-Microsoft-365-CSV-File-or-UniFi-OS",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - SSO Apps Overview",
+    "url": "https://help.ui.com/hc/en-us/articles/18115675474071-UID-Enterprise-SSO-Apps-Overview",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - SSO App Policy and Rule",
+    "url": "https://help.ui.com/hc/en-us/articles/17343999206679-UID-Enterprise-SSO-App-Policy-and-Rule",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Integration with Splunk",
+    "url": "https://help.ui.com/hc/en-us/articles/22336448826775-UID-Enterprise-Integration-with-Splunk",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Integration with Slack",
+    "url": "https://help.ui.com/hc/en-us/articles/18116284629143-UID-Enterprise-Integration-with-Slack",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Integration with OfficeRnD",
+    "url": "https://help.ui.com/hc/en-us/articles/18966328871959-UID-Enterprise-Integration-with-OfficeRnD",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Create Slack Webhook",
+    "url": "https://help.ui.com/hc/en-us/articles/21811750999191-UID-Enterprise-Create-Slack-Webhook",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Slack as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25238151953047-UID-Enterprise-Add-Slack-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Amazon Web Services (AWS) as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25465447292695-UID-Enterprise-Add-Amazon-Web-Services-AWS-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add GitHub as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25465208895255-UID-Enterprise-Add-GitHub-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Atlassian Cloud as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25466393234199-UID-Enterprise-Add-Atlassian-Cloud-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "Adding Microsoft Office 365 as an SSO App in UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/18115889290519-Adding-Microsoft-Office-365-as-an-SSO-App-in-UID-Enterprise",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Google Workspace as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/24928302262039-UID-Enterprise-Add-Google-Workspace-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Dropbox as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25661019948311-UID-Enterprise-Add-Dropbox-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Expensify as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25660567658135-UID-Enterprise-Add-Expensify-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Domo as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25689207598103-UID-Enterprise-Add-Domo-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add YouTrack as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25688284187543-UID-Enterprise-Add-YouTrack-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add BambooHR as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25688406012439-UID-Enterprise-Add-BambooHR-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Figma as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25796829218839-UID-Enterprise-Add-Figma-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "UID Enterprise - Add Notion as an SSO App",
+    "url": "https://help.ui.com/hc/en-us/articles/25796491269911-UID-Enterprise-Add-Notion-as-an-SSO-App",
+    "section": "Admin Guide Third Party Integration"
+  },
+  {
+    "title": "Configuring MTU to Improve WireGuard VPN Connectivity",
+    "url": "https://help.ui.com/hc/en-us/articles/33757605652759-Configuring-MTU-to-Improve-WireGuard-VPN-Connectivity",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Adaptive VPN",
+    "url": "https://help.ui.com/hc/en-us/articles/17198526925079-UID-Enterprise-Adaptive-VPN",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Understanding UID Enterprise MDM",
+    "url": "https://help.ui.com/hc/en-us/articles/18115959954327-UID-Enterprise-Understanding-UID-Enterprise-MDM",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Enrolling Devices in MDM",
+    "url": "https://help.ui.com/hc/en-us/articles/18116197950615-UID-Enterprise-Enrolling-Devices-in-MDM",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Managing Devices Enrolled in MDM",
+    "url": "https://help.ui.com/hc/en-us/articles/18115984327191-UID-Enterprise-Managing-Devices-Enrolled-in-MDM",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Enable Apple Device Supervision",
+    "url": "https://help.ui.com/hc/en-us/articles/24619049011479-UID-Enterprise-Enable-Apple-Device-Supervision",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Manage Corporate and BYOD Devices’ Software",
+    "url": "https://help.ui.com/hc/en-us/articles/18488566885911-UID-Enterprise-Manage-Corporate-and-BYOD-Devices-Software",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Bulk Deploy UID Enterprise Desktop App",
+    "url": "https://help.ui.com/hc/en-us/articles/18750806392343-UID-Enterprise-Bulk-Deploy-UID-Enterprise-Desktop-App",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Passwordless Sign-In",
+    "url": "https://help.ui.com/hc/en-us/articles/18424915121431-UID-Enterprise-Passwordless-Sign-In",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "Configuring Identity Providers with UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/17107038373911-Configuring-Identity-Providers-with-UID-Enterprise",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Configure IdP Routing Rules",
+    "url": "https://help.ui.com/hc/en-us/articles/17108634152087-UID-Enterprise-Configure-IdP-Routing-Rules",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Manage Security Policy and Rule",
+    "url": "https://help.ui.com/hc/en-us/articles/17343809530647-UID-Enterprise-Manage-Security-Policy-and-Rule",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Sign-On Policy and Rule",
+    "url": "https://help.ui.com/hc/en-us/articles/17343704400919-UID-Enterprise-Sign-On-Policy-and-Rule",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Approval Policy and Rule",
+    "url": "https://help.ui.com/hc/en-us/articles/17364586818711-UID-Enterprise-Approval-Policy-and-Rule",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Password Policy and Rule",
+    "url": "https://help.ui.com/hc/en-us/articles/17364707493527-UID-Enterprise-Password-Policy-and-Rule",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Network Zone",
+    "url": "https://help.ui.com/hc/en-us/articles/17365068213271-UID-Enterprise-Network-Zone",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Add and Manage Network Zones",
+    "url": "https://help.ui.com/hc/en-us/articles/17365232251287-UID-Enterprise-Add-and-Manage-Network-Zones",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Risk Scoring",
+    "url": "https://help.ui.com/hc/en-us/articles/17365563006999-UID-Enterprise-Risk-Scoring",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Behavior Rules",
+    "url": "https://help.ui.com/hc/en-us/articles/17366739083927-UID-Enterprise-Behavior-Rules",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Add and Manage Behavior Rules",
+    "url": "https://help.ui.com/hc/en-us/articles/17366906412567-UID-Enterprise-Add-and-Manage-Behavior-Rules",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Event Hooks",
+    "url": "https://help.ui.com/hc/en-us/articles/25465984662551-UID-Enterprise-Event-Hooks",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Risk Score Calculations",
+    "url": "https://help.ui.com/hc/en-us/articles/17365583759767-UID-Enterprise-Risk-Score-Calculations",
+    "section": "Admin Guide Advanced"
+  },
+  {
+    "title": "UID Enterprise - Set Up One-Click WiFi in the Legacy User Interface",
+    "url": "https://help.ui.com/hc/en-us/articles/17143699598231-UID-Enterprise-Set-Up-One-Click-WiFi-in-the-Legacy-User-Interface",
+    "section": "Admin Guide Legacy User Interface"
+  },
+  {
+    "title": "UID Enterprise - Set Up One-Click VPN in the Legacy User Interface",
+    "url": "https://help.ui.com/hc/en-us/articles/17167292342295-UID-Enterprise-Set-Up-One-Click-VPN-in-the-Legacy-User-Interface",
+    "section": "Admin Guide Legacy User Interface"
+  },
+  {
+    "title": "UID Enterprise - Set Up Guest WiFi in the Legacy User Interface",
+    "url": "https://help.ui.com/hc/en-us/articles/18755293406743-UID-Enterprise-Set-Up-Guest-WiFi-in-the-Legacy-User-Interface",
+    "section": "Admin Guide Legacy User Interface"
+  },
+  {
+    "title": "UID Enterprise - Configure Identity Providers in the Legacy User Interface",
+    "url": "https://help.ui.com/hc/en-us/articles/17110100749207-UID-Enterprise-Configure-Identity-Providers-in-the-Legacy-User-Interface",
+    "section": "Admin Guide Legacy User Interface"
+  },
+  {
+    "title": "UID Enterprise - Configure AD/LDAP Provisioning and Integration Settings in the Legacy User Interface",
+    "url": "https://help.ui.com/hc/en-us/articles/17109676910999-UID-Enterprise-Configure-AD-LDAP-Provisioning-and-Integration-Settings-in-the-Legacy-User-Interface",
+    "section": "Admin Guide Legacy User Interface"
+  },
+  {
+    "title": "Troubleshoot an Offline UID Enterprise Agent in the Legacy User Interface",
+    "url": "https://help.ui.com/hc/en-us/articles/17108755926167-Troubleshoot-an-Offline-UID-Enterprise-Agent-in-the-Legacy-User-Interface",
+    "section": "Admin Guide Legacy User Interface"
+  },
+  {
+    "title": "Unlocking Doors with Touch Pass in UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/28098216448919-Unlocking-Doors-with-Touch-Pass-in-UID-Enterprise",
+    "section": "User Guide Account Setup Feature Usage"
+  },
+  {
+    "title": "UID Enterprise - Account and MFA",
+    "url": "https://help.ui.com/hc/en-us/articles/18116302901271-UID-Enterprise-Account-and-MFA",
+    "section": "User Guide Account Setup Feature Usage"
+  },
+  {
+    "title": "UID Enterprise - Unlock Doors Using UID Enterprise Mobile App",
+    "url": "https://help.ui.com/hc/en-us/articles/20490048726295-UID-Enterprise-Unlock-Doors-Using-UID-Enterprise-Mobile-App",
+    "section": "User Guide Account Setup Feature Usage"
+  },
+  {
+    "title": "UID Enterprise - Notification Subscription",
+    "url": "https://help.ui.com/hc/en-us/articles/18937812452375-UID-Enterprise-Notification-Subscription",
+    "section": "User Guide Account Setup Feature Usage"
+  },
+  {
+    "title": "UID Enterprise - Set Up Passkeys",
+    "url": "https://help.ui.com/hc/en-us/articles/18116371054487-UID-Enterprise-Set-Up-Passkeys",
+    "section": "User Guide Account Setup Feature Usage"
+  },
+  {
+    "title": "UID Enterprise - Use and Manage the Verify Mobile App",
+    "url": "https://help.ui.com/hc/en-us/articles/18128614000663-UID-Enterprise-Use-and-Manage-the-Verify-Mobile-App",
+    "section": "User Guide Account Setup Feature Usage"
+  },
+  {
+    "title": "UID Enterprise - Passwordless Sign-In and Recovery Code",
+    "url": "https://help.ui.com/hc/en-us/articles/18128673822231-UID-Enterprise-Passwordless-Sign-In-and-Recovery-Code",
+    "section": "User Guide Account Setup Feature Usage"
+  },
+  {
+    "title": "Troubleshooting UID Enterprise One-Click WiFi and VPN Issues",
+    "url": "https://help.ui.com/hc/en-us/articles/18129571123351-Troubleshooting-UID-Enterprise-One-Click-WiFi-and-VPN-Issues",
+    "section": "User Guide Account Setup Feature Usage"
+  },
+  {
+    "title": "Strengthen the Security of Your Macs and Windows PCs with UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/20022447784087-Strengthen-the-Security-of-Your-Macs-and-Windows-PCs-with-UID-Enterprise",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Best Practices for Admin & User Permission Management in UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/19469899235223-Best-Practices-for-Admin-User-Permission-Management-in-UID-Enterprise",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Optimize Your SaaS Subscriptions with UID Enterprise",
+    "url": "https://help.ui.com/hc/en-us/articles/18967728258071-Optimize-Your-SaaS-Subscriptions-with-UID-Enterprise",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Streamline Device Security and Admin Productivity with UID Enterprise MDM",
+    "url": "https://help.ui.com/hc/en-us/articles/18967716549783-Streamline-Device-Security-and-Admin-Productivity-with-UID-Enterprise-MDM",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Revolutionize Sign-Ins: Say Goodbye to Passwords",
+    "url": "https://help.ui.com/hc/en-us/articles/18489713657879-Revolutionize-Sign-Ins-Say-Goodbye-to-Passwords",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Security Questions Are Insecure. Disable It and Choose a More Secure MFA Method.",
+    "url": "https://help.ui.com/hc/en-us/articles/18516433141911-Security-Questions-Are-Insecure-Disable-It-and-Choose-a-More-Secure-MFA-Method",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Tips for Choosing MFA Methods",
+    "url": "https://help.ui.com/hc/en-us/articles/18516439996311-Tips-for-Choosing-MFA-Methods",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Automate Resource Assignment & Lighten Your Workload",
+    "url": "https://help.ui.com/hc/en-us/articles/18516666889367-Automate-Resource-Assignment-Lighten-Your-Workload",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Secured Remote Access: Everything You Need to Know",
+    "url": "https://help.ui.com/hc/en-us/articles/18516595010967-Secured-Remote-Access-Everything-You-Need-to-Know",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "UniFi Identity Security Policy and Its Benefits",
+    "url": "https://help.ui.com/hc/en-us/articles/18518442287127-UniFi-Identity-Security-Policy-and-Its-Benefits",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "One-Click VPN: Custom Routing and Default DNS Suffix",
+    "url": "https://help.ui.com/hc/en-us/articles/18517244240407-One-Click-VPN-Custom-Routing-and-Default-DNS-Suffix",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Adaptive VPN: Protect Your VPN with an Advanced Layer of Security",
+    "url": "https://help.ui.com/hc/en-us/articles/18517252101143-Adaptive-VPN-Protect-Your-VPN-with-an-Advanced-Layer-of-Security",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Identity Providers Simplify Multi-account Management",
+    "url": "https://help.ui.com/hc/en-us/articles/18517186364439-Identity-Providers-Simplify-Multi-account-Management",
+    "section": "UID Enterprise Lessons"
+  },
+  {
+    "title": "Upgrading to Early Access in UniFi",
+    "url": "https://help.ui.com/hc/en-us/articles/37877072963607-Upgrading-to-Early-Access-in-UniFi",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "UniFi System Logs & SIEM Integration",
+    "url": "https://help.ui.com/hc/en-us/articles/33349041044119-UniFi-System-Logs-SIEM-Integration",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "External Hotspot API for Authorization Clients",
+    "url": "https://help.ui.com/hc/en-us/articles/31228198640023-External-Hotspot-API-for-Authorization-Clients",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "National Defense Authorization Act (NDAA) Compliance",
+    "url": "https://help.ui.com/hc/en-us/articles/31115058556439-National-Defense-Authorization-Act-NDAA-Compliance",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "Ubiquiti UniFi & E-Rate Funding: A Smarter, More Affordable Path to Modern K-12 Networks",
+    "url": "https://help.ui.com/hc/en-us/articles/30031374037783-Ubiquiti-UniFi-E-Rate-Funding-A-Smarter-More-Affordable-Path-to-Modern-K-12-Networks",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "Protecting Against Electrostatic Discharge",
+    "url": "https://help.ui.com/hc/en-us/articles/17190129184279-Protecting-Against-Electrostatic-Discharge",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "Ubiquiti Support and User Responsibilities",
+    "url": "https://help.ui.com/hc/en-us/articles/12257617810327-Ubiquiti-Support-and-User-Responsibilities",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "Ubiquiti's Vintage and Legacy Products",
+    "url": "https://help.ui.com/hc/en-us/articles/1500001268521-Ubiquiti-s-Vintage-and-Legacy-Products",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "UniFi MAC IDs and Date Codes",
+    "url": "https://help.ui.com/hc/en-us/articles/115006745988-UniFi-MAC-IDs-and-Date-Codes",
+    "section": "Additional Resources"
+  },
+  {
+    "title": "Analytics Data Collection FAQ",
+    "url": "https://help.ui.com/hc/en-us/articles/360042384093-Analytics-Data-Collection-FAQ",
+    "section": "Additional Resources"
+  }
+]

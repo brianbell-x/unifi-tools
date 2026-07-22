@@ -1,0 +1,680 @@
+{
+  "domain": "traffic-lists",
+  "paths": {
+    "/v1/sites/{siteId}/traffic-matching-lists/{trafficMatchingListId}": {
+      "get": {
+        "tags": [
+          "Traffic Matching Lists"
+        ],
+        "summary": "Get Traffic Matching List",
+        "description": "Get an exist traffic matching list on a site.",
+        "operationId": "getTrafficMatchingList",
+        "parameters": [
+          {
+            "name": "trafficMatchingListId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Traffic matching list"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Traffic Matching Lists"
+        ],
+        "summary": "Update Traffic Matching List",
+        "description": "Update an exist traffic matching list on a site.",
+        "operationId": "updateTrafficMatchingList",
+        "parameters": [
+          {
+            "name": "trafficMatchingListId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Create or update traffic matching list"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Traffic matching list"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Traffic Matching Lists"
+        ],
+        "summary": "Delete Traffic Matching List",
+        "description": "Delete an exist traffic matching list on a site.",
+        "operationId": "deleteTrafficMatchingList",
+        "parameters": [
+          {
+            "name": "trafficMatchingListId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/traffic-matching-lists": {
+      "get": {
+        "tags": [
+          "Traffic Matching Lists"
+        ],
+        "summary": "List Traffic Matching Lists",
+        "description": "Retrieve all traffic matching lists on a site.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`name`|`STRING`|`eq` `ne` `in` `notIn` `like`|\n</details>",
+        "operationId": "getTrafficMatchingLists",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "maximum": 200,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Traffic matching lists page"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Traffic Matching Lists"
+        ],
+        "summary": "Create Traffic Matching List",
+        "description": "Create a new traffic matching list on a site.",
+        "operationId": "createTrafficMatchingList",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Create or update traffic matching list"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Traffic matching list"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Address IPv4 matching": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IPv4 matching"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "IPv4 address",
+                "example": "192.168.1.5"
+              }
+            }
+          }
+        ],
+        "required": [
+          "value"
+        ]
+      },
+      "Address IPv6 matching": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IPv6 matching"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "IPv6 address",
+                "example": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+              }
+            }
+          }
+        ],
+        "required": [
+          "value"
+        ]
+      },
+      "Address range IPv4 matching": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IPv4 matching"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "string",
+                "description": "IPv4 start address",
+                "example": "192.168.1.10"
+              },
+              "stop": {
+                "type": "string",
+                "description": "IPv4 stop address",
+                "example": "192.168.1.20"
+              }
+            }
+          }
+        ],
+        "required": [
+          "start",
+          "stop"
+        ]
+      },
+      "Create or update traffic matching list": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "PORTS": "#/components/schemas/IntegrationPortTrafficMatchingListCreateUpdateDto",
+            "IPV4_ADDRESSES": "#/components/schemas/IntegrationIpV4TrafficMatchingListCreateUpdateDto",
+            "IPV6_ADDRESSES": "#/components/schemas/IntegrationIpV6TrafficMatchingListCreateUpdateDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "example": "Allowed port list|Protected IP list"
+          }
+        },
+        "required": [
+          "name",
+          "type"
+        ]
+      },
+      "IPv4 matching": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IP_ADDRESS": "#/components/schemas/Address IPv4 matching",
+            "SUBNET": "#/components/schemas/Subnet IPv4 matching",
+            "IP_ADDRESS_RANGE": "#/components/schemas/Address range IPv4 matching"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "IPv6 matching": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IP_ADDRESS": "#/components/schemas/Address IPv6 matching",
+            "SUBNET": "#/components/schemas/Subnet IPv6 matching"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "IntegrationIpV4TrafficMatchingListCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Create or update traffic matching list"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IPv4 matching"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "items",
+          "name"
+        ]
+      },
+      "IntegrationIpV4TrafficMatchingListDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Traffic matching list"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IPv4 matching"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "id",
+          "items",
+          "name"
+        ]
+      },
+      "IntegrationIpV6TrafficMatchingListCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Create or update traffic matching list"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IPv6 matching"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "items",
+          "name"
+        ]
+      },
+      "IntegrationIpV6TrafficMatchingListDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Traffic matching list"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/IPv6 matching"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "id",
+          "items",
+          "name"
+        ]
+      },
+      "IntegrationPortTrafficMatchingListCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Create or update traffic matching list"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Port matching"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "items",
+          "name"
+        ]
+      },
+      "IntegrationPortTrafficMatchingListDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Traffic matching list"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Port matching"
+                },
+                "minItems": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "id",
+          "items",
+          "name"
+        ]
+      },
+      "Number port matching": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Port matching"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Port number",
+                "example": "80|443|8080",
+                "maximum": 65535,
+                "minimum": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "value"
+        ]
+      },
+      "Number range port matching": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Port matching"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "start": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Start port number",
+                "example": "80|443|8080",
+                "maximum": 65535,
+                "minimum": 1
+              },
+              "stop": {
+                "type": "integer",
+                "format": "int32",
+                "description": "Stop port number",
+                "example": "80|443|8080",
+                "maximum": 65535,
+                "minimum": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "start",
+          "stop"
+        ]
+      },
+      "Port matching": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "PORT_NUMBER": "#/components/schemas/Number port matching",
+            "PORT_NUMBER_RANGE": "#/components/schemas/Number range port matching"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Subnet IPv4 matching": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IPv4 matching"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "IPv4 subnet in CIDR notation",
+                "example": "192.168.1.0/24"
+              }
+            }
+          }
+        ],
+        "required": [
+          "value"
+        ]
+      },
+      "Subnet IPv6 matching": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IPv6 matching"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "description": "IPv6 subnet in CIDR notation",
+                "example": "2001:db8:1:0::/64"
+              }
+            }
+          }
+        ],
+        "required": [
+          "value"
+        ]
+      },
+      "Traffic matching list": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "PORTS": "#/components/schemas/IntegrationPortTrafficMatchingListDto",
+            "IPV4_ADDRESSES": "#/components/schemas/IntegrationIpV4TrafficMatchingListDto",
+            "IPV6_ADDRESSES": "#/components/schemas/IntegrationIpV6TrafficMatchingListDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "ffcdb32c-6278-4364-8947-df4f77118df8"
+          },
+          "name": {
+            "type": "string",
+            "example": "Allowed port list|Protected IP list"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "type"
+        ]
+      },
+      "Traffic matching lists page": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Traffic matching list"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      }
+    }
+  }
+}

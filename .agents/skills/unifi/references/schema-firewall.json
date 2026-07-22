@@ -1,0 +1,1318 @@
+{
+  "domain": "firewall",
+  "paths": {
+    "/v1/sites/{siteId}/firewall/zones/{firewallZoneId}": {
+      "get": {
+        "tags": [
+          "Firewall"
+        ],
+        "summary": "Get Firewall Zone",
+        "description": "Get a firewall zone on a site.",
+        "operationId": "getFirewallZone",
+        "parameters": [
+          {
+            "name": "firewallZoneId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Firewall zone"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Firewall"
+        ],
+        "summary": "Update Firewall Zone",
+        "description": "Update a firewall zone on a site.",
+        "operationId": "updateFirewallZone",
+        "parameters": [
+          {
+            "name": "firewallZoneId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Create or update firewall zone"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Firewall zone"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Firewall"
+        ],
+        "summary": "Delete Custom Firewall Zone",
+        "description": "Delete a custom firewall zone from a site.",
+        "operationId": "deleteFirewallZone",
+        "parameters": [
+          {
+            "name": "firewallZoneId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/acl-rules/{aclRuleId}": {
+      "get": {
+        "tags": [
+          "Access Control (ACL Rules)"
+        ],
+        "summary": "Get ACL Rule",
+        "operationId": "getAclRule",
+        "parameters": [
+          {
+            "name": "aclRuleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ACL rule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Access Control (ACL Rules)"
+        ],
+        "summary": "Update ACL Rule",
+        "description": "Update an existing user defined ACL rule",
+        "operationId": "updateAclRule",
+        "parameters": [
+          {
+            "name": "aclRuleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ACL rule update"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ACL rule"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Access Control (ACL Rules)"
+        ],
+        "summary": "Delete ACL Rule",
+        "description": "Delete an existing user defined ACL rule",
+        "operationId": "deleteAclRule",
+        "parameters": [
+          {
+            "name": "aclRuleId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/firewall/zones": {
+      "get": {
+        "tags": [
+          "Firewall"
+        ],
+        "summary": "List Firewall Zones",
+        "description": "Retrieve a list of all firewall zones on a site.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`name`|`STRING`|`eq` `ne` `in` `notIn` `like`|\n|`metadata.origin`|`STRING`|`eq` `ne` `in` `notIn`|\n|`metadata.configurable`|`BOOLEAN`|`eq` `ne` `isNull` `isNotNull`|\n</details>",
+        "operationId": "getFirewallZones",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "maximum": 200,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Firewall zones page"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Firewall"
+        ],
+        "summary": "Create Custom Firewall Zone",
+        "description": "Create a new custom firewall zone on a site.",
+        "operationId": "createFirewallZone",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Create or update firewall zone"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Firewall zone"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/acl-rules": {
+      "get": {
+        "tags": [
+          "Access Control (ACL Rules)"
+        ],
+        "summary": "List ACL Rules",
+        "description": "Retrieve a paginated list of all ACL rules on a site.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`type`|`STRING`|`eq` `ne` `in` `notIn`|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`enabled`|`BOOLEAN`|`eq` `ne`|\n|`name`|`STRING`|`eq` `ne` `in` `notIn` `like`|\n|`description`|`STRING`|`isNull` `isNotNull` `eq` `ne` `in` `notIn` `like`|\n|`action`|`STRING`|`eq` `ne` `in` `notIn`|\n|`index`|`INTEGER`|`eq` `ne` `gt` `ge` `lt` `le` `in` `notIn`|\n|`protocolsFilter`|`SET(STRING)`|`isNull` `isNotNull` `contains` `containsAny` `containsAll` `containsExactly`|\n|`networkId`|`UUID`|`isNull` `isNotNull` `eq` `ne` `in` `notIn`|\n|`enforcingDeviceFilter.deviceIds`|`SET(UUID)`|`isNull` `isNotNull` `contains` `containsAny` `containsAll` `containsExactly`|\n|`metadata.origin`|`STRING`|`eq` `ne` `in` `notIn`|\n|`sourceFilter.type`|`STRING`|`isNull` `isNotNull` `eq` `ne` `in` `notIn`|\n|`sourceFilter.ipAddressesOrSubnets`|`SET(STRING)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`sourceFilter.portsFilter`|`SET(INTEGER)`|`isNull` `isNotNull` `contains` `containsAny` `containsAll` `containsExactly`|\n|`sourceFilter.networkIds`|`SET(UUID)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`sourceFilter.macAddresses`|`SET(STRING)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`sourceFilter.prefixLength`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le` `in` `notIn`|\n|`destinationFilter.type`|`STRING`|`isNull` `isNotNull` `eq` `ne` `in` `notIn`|\n|`destinationFilter.ipAddressesOrSubnets`|`SET(STRING)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`destinationFilter.portsFilter`|`SET(INTEGER)`|`isNull` `isNotNull` `contains` `containsAny` `containsAll` `containsExactly`|\n|`destinationFilter.networkIds`|`SET(UUID)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`destinationFilter.macAddresses`|`SET(STRING)`|`contains` `containsAny` `containsAll` `containsExactly`|\n|`destinationFilter.prefixLength`|`INTEGER`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le` `in` `notIn`|\n</details>",
+        "operationId": "getAclRulePage",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "maximum": 200,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntegrationAclRulePageDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Access Control (ACL Rules)"
+        ],
+        "summary": "Create ACL Rule",
+        "description": "Create a new user defined ACL rule",
+        "operationId": "createAclRule",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ACL rule update"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ACL rule"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ACL rule": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IPV4": "#/components/schemas/IntegrationIpAclRuleDto",
+            "MAC": "#/components/schemas/IntegrationMacAclRuleDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "enabled": {
+            "type": "boolean",
+            "example": true
+          },
+          "name": {
+            "type": "string",
+            "description": "ACL rule name"
+          },
+          "description": {
+            "type": "string",
+            "description": "ACL rule description"
+          },
+          "action": {
+            "type": "string",
+            "description": "ACL rule action",
+            "enum": [
+              "ALLOW",
+              "BLOCK"
+            ],
+            "example": "ALLOW|BLOCK"
+          },
+          "enforcingDeviceFilter": {
+            "$ref": "#/components/schemas/ACL rule device filter",
+            "description": "IDs of the Switch-capable devices used to enforce the ACL rule. When null, the rule will be provisioned to all switches on the site."
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ACL rule index. Lower index has higher priority",
+            "minimum": 0
+          },
+          "sourceFilter": {
+            "description": "Traffic source filter"
+          },
+          "destinationFilter": {
+            "description": "Traffic destination filter"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Entity metadata",
+            "description": "Only user-defined rules can be deleted or modified"
+          }
+        },
+        "required": [
+          "action",
+          "enabled",
+          "id",
+          "index",
+          "metadata",
+          "name",
+          "type"
+        ]
+      },
+      "ACL rule device filter": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DEVICES": "#/components/schemas/IntegrationAclRuleDevicesFilterDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "ACL rule update": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IPV4": "#/components/schemas/IntegrationIpAclRuleCreateUpdateDto",
+            "MAC": "#/components/schemas/IntegrationMacAclRuleCreateUpdateDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean",
+            "example": true
+          },
+          "name": {
+            "type": "string",
+            "description": "ACL rule name"
+          },
+          "description": {
+            "type": "string",
+            "description": "ACL rule description"
+          },
+          "action": {
+            "type": "string",
+            "description": "ACL rule action",
+            "enum": [
+              "ALLOW",
+              "BLOCK"
+            ],
+            "example": "ALLOW|BLOCK"
+          },
+          "enforcingDeviceFilter": {
+            "$ref": "#/components/schemas/ACL rule device filter",
+            "description": "IDs of the Switch-capable devices used to enforce the ACL rule. When null, the rule will be provisioned to all switches on the site."
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ACL rule index. Lower index has higher priority",
+            "minimum": 0
+          },
+          "sourceFilter": {
+            "description": "Traffic source filter"
+          },
+          "destinationFilter": {
+            "description": "Traffic destination filter"
+          }
+        },
+        "required": [
+          "action",
+          "enabled",
+          "index",
+          "name",
+          "type"
+        ]
+      },
+      "ACL ruleObject": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IPV4": "#/components/schemas/IntegrationIpAclRuleDto",
+            "MAC": "#/components/schemas/IntegrationMacAclRuleDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "enabled": {
+            "type": "boolean",
+            "example": true
+          },
+          "name": {
+            "type": "string",
+            "description": "ACL rule name"
+          },
+          "description": {
+            "type": "string",
+            "description": "ACL rule description"
+          },
+          "action": {
+            "type": "string",
+            "description": "ACL rule action",
+            "enum": [
+              "ALLOW",
+              "BLOCK"
+            ],
+            "example": "ALLOW|BLOCK"
+          },
+          "enforcingDeviceFilter": {
+            "$ref": "#/components/schemas/ACL rule device filter",
+            "description": "IDs of the Switch-capable devices used to enforce the ACL rule. When null, the rule will be provisioned to all switches on the site."
+          },
+          "index": {
+            "type": "integer",
+            "format": "int32",
+            "description": "ACL rule index. Lower index has higher priority",
+            "minimum": 0
+          },
+          "sourceFilter": {
+            "description": "Traffic source filter"
+          },
+          "destinationFilter": {
+            "description": "Traffic destination filter"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Entity metadata",
+            "description": "Only user-defined rules can be deleted or modified"
+          }
+        },
+        "required": [
+          "action",
+          "enabled",
+          "id",
+          "index",
+          "metadata",
+          "name",
+          "type"
+        ]
+      },
+      "Create or update firewall zone": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of a firewall zone",
+            "example": "Hotspot|My custom zone"
+          },
+          "networkIds": {
+            "type": "array",
+            "description": "List of Network IDs",
+            "items": {
+              "example": "dfb21062-8ea0-4dca-b1d8-1eb3da00e58b"
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "name",
+          "networkIds"
+        ]
+      },
+      "Derived entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User defined or derived entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          }
+        ]
+      },
+      "Entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "Firewall zone": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "example": "ffcdb32c-6278-4364-8947-df4f77118df8"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of a firewall zone",
+            "example": "Hotspot|My custom zone"
+          },
+          "networkIds": {
+            "type": "array",
+            "description": "List of Network IDs",
+            "items": {
+              "example": "dfb21062-8ea0-4dca-b1d8-1eb3da00e58b"
+            },
+            "minItems": 0
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/User or system defined entity metadata",
+            "description": "System-defined configurable zones support configuring only attached networks"
+          }
+        },
+        "required": [
+          "id",
+          "metadata",
+          "name",
+          "networkIds"
+        ]
+      },
+      "Firewall zones page": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Firewall zone"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      },
+      "IP ACL rule endpoint": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "IP_ADDRESSES_OR_SUBNETS": "#/components/schemas/IntegrationIpAclRuleSubnetEndpointFilterDto",
+            "NETWORKS": "#/components/schemas/IntegrationIpAclRuleNetworkEndpointFilterDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "IntegrationAclRuleDevicesFilterDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ACL rule device filter"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "deviceIds": {
+                "type": "array",
+                "description": "List of Switch capable device IDs to which the ACL rule will be provisioned.",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        ],
+        "required": [
+          "deviceIds"
+        ]
+      },
+      "IntegrationAclRulePageDto": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ACL ruleObject"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      },
+      "IntegrationDerivedSiteToSiteTunnelMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Site-to-site VPN tunnel metadata"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "SDWAN"
+                ]
+              }
+            }
+          }
+        ],
+        "required": [
+          "source"
+        ]
+      },
+      "IntegrationIpAclRuleCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ACL rule update"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "sourceFilter": {
+                "$ref": "#/components/schemas/IP ACL rule endpoint",
+                "description": "Traffic source filter"
+              },
+              "destinationFilter": {
+                "$ref": "#/components/schemas/IP ACL rule endpoint",
+                "description": "Traffic destination filter"
+              },
+              "protocolFilter": {
+                "type": "array",
+                "description": "Protocols this ACL rule will be applied to. When null, the rule will be applied to all protocols.",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "TCP",
+                    "UDP"
+                  ]
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        ],
+        "required": [
+          "action",
+          "enabled",
+          "index",
+          "name"
+        ]
+      },
+      "IntegrationIpAclRuleDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ACL rule"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "sourceFilter": {
+                "$ref": "#/components/schemas/IP ACL rule endpoint",
+                "description": "Traffic source filter"
+              },
+              "destinationFilter": {
+                "$ref": "#/components/schemas/IP ACL rule endpoint",
+                "description": "Traffic destination filter"
+              },
+              "protocolFilter": {
+                "type": "array",
+                "description": "Protocols this ACL rule will be applied to. When null, the rule will be applied to all protocols.",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "TCP",
+                    "UDP"
+                  ]
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/ACL ruleObject"
+          }
+        ],
+        "required": [
+          "action",
+          "enabled",
+          "id",
+          "index",
+          "metadata",
+          "name"
+        ]
+      },
+      "IntegrationIpAclRuleNetworkEndpointFilterDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IP ACL rule endpoint"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "networkIds": {
+                "type": "array",
+                "description": "Network IDs",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              }
+            }
+          }
+        ],
+        "required": [
+          "networkIds"
+        ]
+      },
+      "IntegrationIpAclRuleSubnetEndpointFilterDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IP ACL rule endpoint"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "ipAddressesOrSubnets": {
+                "type": "array",
+                "description": "IP addresses or subnets",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "portFilter": {
+                "type": "array",
+                "description": "Ports this ACL rule will be applied to. If null, all the rule will be applied to all ports.",
+                "items": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "minItems": 1,
+                "minimum": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "ipAddressesOrSubnets"
+        ]
+      },
+      "IntegrationMacAclRuleCreateUpdateDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ACL rule update"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "sourceFilter": {
+                "$ref": "#/components/schemas/MAC ACL rule endpoint",
+                "description": "Traffic source filter"
+              },
+              "destinationFilter": {
+                "$ref": "#/components/schemas/MAC ACL rule endpoint",
+                "description": "Traffic destination filter"
+              },
+              "networkIdFilter": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Network ID to which this ACL rule applies"
+              }
+            }
+          }
+        ],
+        "required": [
+          "action",
+          "enabled",
+          "index",
+          "name",
+          "networkIdFilter"
+        ]
+      },
+      "IntegrationMacAclRuleDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ACL rule"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "sourceFilter": {
+                "$ref": "#/components/schemas/MAC ACL rule endpoint",
+                "description": "Traffic source filter"
+              },
+              "destinationFilter": {
+                "$ref": "#/components/schemas/MAC ACL rule endpoint",
+                "description": "Traffic destination filter"
+              },
+              "networkIdFilter": {
+                "type": "string",
+                "format": "uuid",
+                "description": "Network ID to which this ACL rule applies"
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/ACL ruleObject"
+          }
+        ],
+        "required": [
+          "action",
+          "enabled",
+          "id",
+          "index",
+          "metadata",
+          "name",
+          "networkIdFilter"
+        ]
+      },
+      "IntegrationMacAclRuleMacAddressEndpointFilterDto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MAC ACL rule endpoint"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "macAddresses": {
+                "type": "array",
+                "description": "Source/destination MAC addresses this ACL rule will apply to.",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1
+              },
+              "prefixLength": {
+                "type": "integer",
+                "format": "int32",
+                "description": "MAC address prefix length. When null, full MAC address(-es) will be used.",
+                "maximum": 48,
+                "minimum": 1
+              }
+            }
+          }
+        ],
+        "required": [
+          "macAddresses"
+        ]
+      },
+      "MAC ACL rule endpoint": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "MAC_ADDRESSES": "#/components/schemas/IntegrationMacAclRuleMacAddressEndpointFilterDto"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Orchestrated entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          }
+        ]
+      },
+      "Site-to-site VPN tunnel metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/IntegrationDerivedSiteToSiteTunnelMetadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "System defined entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "configurable": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "User defined entity metadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User defined or derived entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or system defined or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/User or derived or orchestrated entity metadata"
+          },
+          {
+            "$ref": "#/components/schemas/Site-to-site VPN tunnel metadata"
+          }
+        ]
+      },
+      "User defined or derived entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or derived or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "DERIVED": "#/components/schemas/Derived entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or system defined entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      },
+      "User or system defined or orchestrated entity metadata": {
+        "discriminator": {
+          "propertyName": "origin",
+          "mapping": {
+            "USER_DEFINED": "#/components/schemas/User defined entity metadata",
+            "SYSTEM_DEFINED": "#/components/schemas/System defined entity metadata",
+            "ORCHESTRATED": "#/components/schemas/Orchestrated entity metadata"
+          }
+        },
+        "properties": {
+          "origin": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "origin"
+        ]
+      }
+    }
+  }
+}

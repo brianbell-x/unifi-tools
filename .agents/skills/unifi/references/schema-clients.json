@@ -1,0 +1,854 @@
+{
+  "domain": "clients",
+  "paths": {
+    "/v1/sites/{siteId}/clients/{clientId}/actions": {
+      "post": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Execute Client Action",
+        "description": "Perform an action on a specific connected client. The request body must include the action name and any applicable input arguments.",
+        "operationId": "executeConnectedClientAction",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client action request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client action response"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/clients": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "List Connected Clients",
+        "description": "Retrieve a paginated list of all connected clients on a site, including physical devices (computers, smartphones) and active VPN connections.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`type`|`STRING`|`eq` `ne` `in` `notIn`|\n|`macAddress`|`STRING`|`isNull` `isNotNull` `eq` `ne` `in` `notIn`|\n|`ipAddress`|`STRING`|`isNull` `isNotNull` `eq` `ne` `in` `notIn`|\n|`connectedAt`|`TIMESTAMP`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le`|\n|`access.type`|`STRING`|`eq` `ne` `in` `notIn`|\n|`access.authorized`|`BOOLEAN`|`isNull` `isNotNull` `eq` `ne`|\n</details>",
+        "operationId": "getConnectedClientOverviewPage",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "maximum": 200,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client overview page"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/clients/{clientId}": {
+      "get": {
+        "tags": [
+          "Clients"
+        ],
+        "summary": "Get Connected Client Details",
+        "description": "Retrieve detailed information about a specific connected client, including name, IP address, MAC address, connection type and access information.",
+        "operationId": "getConnectedClientDetails",
+        "parameters": [
+          {
+            "name": "clientId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client details"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Client access overview": {
+        "example": {
+          "type": "DEFAULT"
+        }
+      },
+      "Client action request": {
+        "discriminator": {
+          "propertyName": "action",
+          "mapping": {
+            "AUTHORIZE_GUEST_ACCESS": "#/components/schemas/Guest access authorization request",
+            "UNAUTHORIZE_GUEST_ACCESS": "#/components/schemas/Guest access unauthorization request"
+          }
+        },
+        "properties": {
+          "action": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      },
+      "Client action response": {
+        "discriminator": {
+          "propertyName": "action",
+          "mapping": {
+            "AUTHORIZE_GUEST_ACCESS": "#/components/schemas/Guest access authorization response",
+            "UNAUTHORIZE_GUEST_ACCESS": "#/components/schemas/Guest access unauthorization response"
+          }
+        },
+        "properties": {
+          "action": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      },
+      "Client details": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "WIRED": "#/components/schemas/Wired client details",
+            "WIRELESS": "#/components/schemas/Wireless client details",
+            "VPN": "#/components/schemas/VPN client (connection) details",
+            "TELEPORT": "#/components/schemas/Teleport client (connection) details"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "connectedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ipAddress": {
+            "type": "string"
+          },
+          "access": {}
+        },
+        "required": [
+          "access",
+          "id",
+          "name",
+          "type"
+        ]
+      },
+      "Client overview": {
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "WIRED": "#/components/schemas/Wired client overview",
+            "WIRELESS": "#/components/schemas/Wireless client overview",
+            "VPN": "#/components/schemas/VPN client (connection) overview",
+            "TELEPORT": "#/components/schemas/Teleport client (connection) overview"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "connectedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ipAddress": {
+            "type": "string"
+          },
+          "access": {
+            "$ref": "#/components/schemas/Client access overview"
+          }
+        },
+        "required": [
+          "access",
+          "id",
+          "name",
+          "type"
+        ]
+      },
+      "Client overview page": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Client overview"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      },
+      "Default client access details": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Local client access details"
+          },
+          {
+            "$ref": "#/components/schemas/VPN client access details"
+          },
+          {
+            "$ref": "#/components/schemas/Teleport client access details"
+          }
+        ]
+      },
+      "Default client access overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Local client access overview"
+          },
+          {
+            "$ref": "#/components/schemas/VPN client access overview"
+          },
+          {
+            "$ref": "#/components/schemas/Teleport client access overview"
+          }
+        ]
+      },
+      "Guest access authorization request": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client action request"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "timeLimitMinutes": {
+                "type": "integer",
+                "format": "int64",
+                "description": "(Optional) how long (in minutes) the guest will be authorized to access the network.\nIf not specified, the default limit is used from the site settings",
+                "maximum": 1000000,
+                "minimum": 1
+              },
+              "dataUsageLimitMBytes": {
+                "type": "integer",
+                "format": "int64",
+                "description": "(Optional) data usage limit in megabytes",
+                "maximum": 1048576,
+                "minimum": 1
+              },
+              "rxRateLimitKbps": {
+                "type": "integer",
+                "format": "int64",
+                "description": "(Optional) download rate limit in kilobits per second",
+                "maximum": 100000,
+                "minimum": 2
+              },
+              "txRateLimitKbps": {
+                "type": "integer",
+                "format": "int64",
+                "description": "(Optional) upload rate limit in kilobits per second",
+                "maximum": 100000,
+                "minimum": 2
+              }
+            }
+          }
+        ],
+        "description": "Authorizes network access to a guest client. Client must be a guest.\nThis action cancels existing active authorization (if exists), creates a new one with new limits\nand resets guest traffic counters."
+      },
+      "Guest access authorization response": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client action response"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "revokedAuthorization": {
+                "$ref": "#/components/schemas/Guest authorization details",
+                "description": "(Optional) Revoked authorization in case the guest was already authorized at the time of this request"
+              },
+              "grantedAuthorization": {
+                "$ref": "#/components/schemas/Guest authorization details",
+                "description": "Granted guest authorization"
+              }
+            }
+          }
+        ],
+        "required": [
+          "grantedAuthorization"
+        ]
+      },
+      "Guest access details": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Local client access details"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "authorized": {
+                "type": "boolean"
+              },
+              "authorization": {
+                "$ref": "#/components/schemas/Guest authorization details"
+              }
+            }
+          }
+        ],
+        "required": [
+          "authorized"
+        ]
+      },
+      "Guest access overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Local client access overview"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "authorized": {
+                "type": "boolean"
+              }
+            }
+          }
+        ],
+        "required": [
+          "authorized"
+        ]
+      },
+      "Guest access unauthorization request": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client action request"
+          }
+        ],
+        "description": "Unauthorizes network access and disconnects a guest client."
+      },
+      "Guest access unauthorization response": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client action response"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "revokedAuthorization": {
+                "$ref": "#/components/schemas/Guest authorization details",
+                "description": "Revoked guest authorization"
+              }
+            }
+          }
+        ],
+        "required": [
+          "revokedAuthorization"
+        ]
+      },
+      "Guest authorization details": {
+        "properties": {
+          "authorizedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the guest has been authorized"
+          },
+          "authorizationMethod": {
+            "type": "string",
+            "description": "Guest authorization method (API, Voucher etc)",
+            "enum": [
+              "VOUCHER",
+              "API",
+              "OTHER"
+            ]
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the guest will get automatically unauthorized"
+          },
+          "dataUsageLimitMBytes": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) data usage limit in megabytes",
+            "example": 1024
+          },
+          "rxRateLimitKbps": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) download rate limit in kilobits per second",
+            "example": 1000
+          },
+          "txRateLimitKbps": {
+            "type": "integer",
+            "format": "int64",
+            "description": "(Optional) upload rate limit in kilobits per second",
+            "example": 1000
+          },
+          "usage": {
+            "$ref": "#/components/schemas/Guest authorization usage details"
+          }
+        },
+        "required": [
+          "authorizationMethod",
+          "authorizedAt",
+          "expiresAt"
+        ]
+      },
+      "Guest authorization usage details": {
+        "properties": {
+          "durationSec": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rxBytes": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "txBytes": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bytes": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "required": [
+          "bytes",
+          "durationSec",
+          "rxBytes",
+          "txBytes"
+        ]
+      },
+      "Local client access details": {
+        "description": "Represents the type of network access and/or any applicable authorization status the client is using.\n\n- **Wired clients** may have direct access without additional authorization.\n- **Wireless clients** can be connected via a protected network or an open network\n  that may require additional authorization (e.g., a guest portal).\n- **VPN clients** may have different authorization mechanisms.\n\nCurrently, the only two supported access types are `GUEST` (used for wired and wireless guest clients)\nand `DEFAULT` (a placeholder, which might be refined in the future releases, used for all other clients).\n\nFiltering is possible by `access.type`, for example `access.type.eq('GUEST')` to list guest clients.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DEFAULT": "#/components/schemas/Default client access details",
+            "GUEST": "#/components/schemas/Guest access details"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Local client access overview": {
+        "description": "Represents the type of network access and/or any applicable authorization status the client is using.\n\n- **Wired clients** may have direct access without additional authorization.\n- **Wireless clients** can be connected via a protected network or an open network\n  that may require additional authorization (e.g., a guest portal).\n- **VPN clients** may have different authorization mechanisms.\n\nCurrently, the only two supported access types are `GUEST` (used for wired and wireless guest clients)\nand `DEFAULT` (a placeholder, which might be refined in the future releases, used for all other clients).\n\nFiltering is possible by `access.type`, for example `access.type.eq('GUEST')` to list guest clients.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DEFAULT": "#/components/schemas/Default client access overview",
+            "GUEST": "#/components/schemas/Guest access overview"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Teleport client (connection) details": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "connectedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ipAddress": {
+            "type": "string"
+          },
+          "access": {
+            "$ref": "#/components/schemas/Teleport client access details"
+          }
+        },
+        "required": [
+          "access",
+          "id",
+          "name"
+        ]
+      },
+      "Teleport client (connection) overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client overview"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "access": {
+                "$ref": "#/components/schemas/Teleport client access overview"
+              }
+            }
+          }
+        ],
+        "required": [
+          "access",
+          "id",
+          "name"
+        ]
+      },
+      "Teleport client access details": {
+        "description": "Represents the type of network access and/or any applicable authorization status the client is using.\n\n- **Wired clients** may have direct access without additional authorization.\n- **Wireless clients** can be connected via a protected network or an open network\n  that may require additional authorization (e.g., a guest portal).\n- **VPN clients** may have different authorization mechanisms.\n\nCurrently, the only two supported access types are `GUEST` (used for wired and wireless guest clients)\nand `DEFAULT` (a placeholder, which might be refined in the future releases, used for all other clients).\n\nFiltering is possible by `access.type`, for example `access.type.eq('GUEST')` to list guest clients.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DEFAULT": "#/components/schemas/Default client access details"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Teleport client access overview": {
+        "description": "Represents the type of network access and/or any applicable authorization status the client is using.\n\n- **Wired clients** may have direct access without additional authorization.\n- **Wireless clients** can be connected via a protected network or an open network\n  that may require additional authorization (e.g., a guest portal).\n- **VPN clients** may have different authorization mechanisms.\n\nCurrently, the only two supported access types are `GUEST` (used for wired and wireless guest clients)\nand `DEFAULT` (a placeholder, which might be refined in the future releases, used for all other clients).\n\nFiltering is possible by `access.type`, for example `access.type.eq('GUEST')` to list guest clients.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DEFAULT": "#/components/schemas/Default client access overview"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "VPN client (connection) details": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client details"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "access": {
+                "$ref": "#/components/schemas/VPN client access details"
+              }
+            }
+          }
+        ],
+        "required": [
+          "access",
+          "id",
+          "name"
+        ]
+      },
+      "VPN client (connection) overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client overview"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "access": {
+                "$ref": "#/components/schemas/VPN client access overview"
+              }
+            }
+          }
+        ],
+        "required": [
+          "access",
+          "id",
+          "name"
+        ]
+      },
+      "VPN client access details": {
+        "description": "Represents the type of network access and/or any applicable authorization status the client is using.\n\n- **Wired clients** may have direct access without additional authorization.\n- **Wireless clients** can be connected via a protected network or an open network\n  that may require additional authorization (e.g., a guest portal).\n- **VPN clients** may have different authorization mechanisms.\n\nCurrently, the only two supported access types are `GUEST` (used for wired and wireless guest clients)\nand `DEFAULT` (a placeholder, which might be refined in the future releases, used for all other clients).\n\nFiltering is possible by `access.type`, for example `access.type.eq('GUEST')` to list guest clients.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DEFAULT": "#/components/schemas/Default client access details"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "VPN client access overview": {
+        "description": "Represents the type of network access and/or any applicable authorization status the client is using.\n\n- **Wired clients** may have direct access without additional authorization.\n- **Wireless clients** can be connected via a protected network or an open network\n  that may require additional authorization (e.g., a guest portal).\n- **VPN clients** may have different authorization mechanisms.\n\nCurrently, the only two supported access types are `GUEST` (used for wired and wireless guest clients)\nand `DEFAULT` (a placeholder, which might be refined in the future releases, used for all other clients).\n\nFiltering is possible by `access.type`, for example `access.type.eq('GUEST')` to list guest clients.",
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "DEFAULT": "#/components/schemas/Default client access overview"
+          }
+        },
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "Wired client details": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client details"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "macAddress": {
+                "type": "string"
+              },
+              "uplinkDeviceId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "access": {
+                "$ref": "#/components/schemas/Local client access details"
+              }
+            }
+          }
+        ],
+        "required": [
+          "access",
+          "id",
+          "macAddress",
+          "name",
+          "uplinkDeviceId"
+        ]
+      },
+      "Wired client overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client overview"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "macAddress": {
+                "type": "string"
+              },
+              "uplinkDeviceId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "access": {
+                "$ref": "#/components/schemas/Local client access overview"
+              }
+            }
+          }
+        ],
+        "required": [
+          "access",
+          "id",
+          "macAddress",
+          "name",
+          "uplinkDeviceId"
+        ]
+      },
+      "Wireless client details": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client details"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "macAddress": {
+                "type": "string"
+              },
+              "uplinkDeviceId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "access": {
+                "$ref": "#/components/schemas/Local client access details"
+              }
+            }
+          }
+        ],
+        "required": [
+          "access",
+          "id",
+          "macAddress",
+          "name",
+          "uplinkDeviceId"
+        ]
+      },
+      "Wireless client overview": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Client overview"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "macAddress": {
+                "type": "string"
+              },
+              "uplinkDeviceId": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "access": {
+                "$ref": "#/components/schemas/Local client access overview"
+              }
+            }
+          }
+        ],
+        "required": [
+          "access",
+          "id",
+          "macAddress",
+          "name",
+          "uplinkDeviceId"
+        ]
+      }
+    }
+  }
+}

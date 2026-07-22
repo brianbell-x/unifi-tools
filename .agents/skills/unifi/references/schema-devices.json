@@ -1,0 +1,916 @@
+{
+  "domain": "devices",
+  "paths": {
+    "/v1/sites/{siteId}/devices/{deviceId}/interfaces/ports/{portIdx}/actions": {
+      "post": {
+        "tags": [
+          "UniFi Devices"
+        ],
+        "summary": "Execute Port Action",
+        "description": "Perform an action on a specific device port. The request body must include the action name and any applicable input arguments.",
+        "operationId": "executePortAction",
+        "parameters": [
+          {
+            "name": "portIdx",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Port action request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/devices/{deviceId}/actions": {
+      "post": {
+        "tags": [
+          "UniFi Devices"
+        ],
+        "summary": "Execute Adopted Device Action",
+        "description": "Perform an action on an specific adopted device. The request body must include the action name and any applicable input arguments.",
+        "operationId": "executeAdoptedDeviceAction",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Device action request"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/devices": {
+      "get": {
+        "tags": [
+          "UniFi Devices"
+        ],
+        "summary": "List Adopted Devices",
+        "description": "Retrieve a paginated list of all adopted devices on a site, including basic device information.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`id`|`UUID`|`eq` `ne` `in` `notIn`|\n|`macAddress`|`STRING`|`eq` `ne` `in` `notIn`|\n|`ipAddress`|`STRING`|`eq` `ne` `in` `notIn`|\n|`name`|`STRING`|`eq` `ne` `in` `notIn` `like`|\n|`model`|`STRING`|`eq` `ne` `in` `notIn`|\n|`state`|`STRING`|`eq` `ne` `in` `notIn`|\n|`supported`|`BOOLEAN`|`eq` `ne`|\n|`firmwareVersion`|`STRING`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le` `like` `in` `notIn`|\n|`firmwareUpdatable`|`BOOLEAN`|`eq` `ne`|\n|`features`|`SET(STRING)`|`isEmpty` `contains` `containsAny` `containsAll` `containsExactly`|\n|`interfaces`|`SET(STRING)`|`isEmpty` `contains` `containsAny` `containsAll` `containsExactly`|\n</details>",
+        "operationId": "getAdoptedDeviceOverviewPage",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "maximum": 200,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adopted device overview page"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/devices/{deviceId}": {
+      "get": {
+        "tags": [
+          "UniFi Devices"
+        ],
+        "summary": "Get Adopted Device Details",
+        "description": "Retrieve detailed information about a specific adopted device, including firmware versioning, uplink state, details about device features and interfaces (ports, radios) and other key attributes.",
+        "operationId": "getAdoptedDeviceDetails",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adopted device details"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/sites/{siteId}/devices/{deviceId}/statistics/latest": {
+      "get": {
+        "tags": [
+          "UniFi Devices"
+        ],
+        "summary": "Get Latest Adopted Device Statistics",
+        "description": "Retrieve the latest real-time statistics of a specific adopted device, such as uptime, data transmission rates, CPU and memory utilization.",
+        "operationId": "getAdoptedDeviceLatestStatistics",
+        "parameters": [
+          {
+            "name": "siteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "deviceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Latest statistics for a device"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/pending-devices": {
+      "get": {
+        "tags": [
+          "UniFi Devices"
+        ],
+        "summary": "List Devices Pending Adoption",
+        "description": "Retrieve a paginated list of devices pending adoption, including basic device information.\n\n<details>\n<summary>Filterable properties (click to expand)</summary>\n\n|Name|Type|Allowed functions|\n|-|-|-|\n|`macAddress`|`STRING`|`eq` `ne` `in` `notIn`|\n|`ipAddress`|`STRING`|`eq` `ne` `in` `notIn`|\n|`model`|`STRING`|`eq` `ne` `in` `notIn`|\n|`state`|`STRING`|`eq` `ne` `in` `notIn`|\n|`supported`|`BOOLEAN`|`eq` `ne`|\n|`firmwareVersion`|`STRING`|`isNull` `isNotNull` `eq` `ne` `gt` `ge` `lt` `le` `like` `in` `notIn`|\n|`firmwareUpdatable`|`BOOLEAN`|`eq` `ne`|\n|`features`|`SET(STRING)`|`isEmpty` `contains` `containsAny` `containsAll` `containsExactly`|\n</details>",
+        "operationId": "getPendingDevicePage",
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "format": "int32",
+              "default": 25,
+              "maximum": 200,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Device pending adoption page"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Access point feature overview": {},
+      "Adopted device details": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "macAddress": {
+            "type": "string",
+            "example": "94:2a:6f:26:c6:ca"
+          },
+          "ipAddress": {
+            "type": "string",
+            "example": "192.168.1.55"
+          },
+          "name": {
+            "type": "string",
+            "example": "IW HD"
+          },
+          "model": {
+            "type": "string",
+            "example": "UHDIW"
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "ONLINE",
+              "OFFLINE",
+              "PENDING_ADOPTION",
+              "UPDATING",
+              "GETTING_READY",
+              "ADOPTING",
+              "DELETING",
+              "CONNECTION_INTERRUPTED",
+              "ISOLATED",
+              "U5G_INCORRECT_TOPOLOGY"
+            ]
+          },
+          "firmwareVersion": {
+            "type": "string",
+            "example": "6.6.55"
+          },
+          "firmwareUpdatable": {
+            "type": "boolean"
+          },
+          "adoptedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "provisionedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "configurationId": {
+            "type": "string",
+            "example": "7596498d2f367dc2"
+          },
+          "uplink": {
+            "$ref": "#/components/schemas/Device uplink interface overview"
+          },
+          "features": {
+            "$ref": "#/components/schemas/Device features"
+          },
+          "interfaces": {
+            "$ref": "#/components/schemas/Device physical interfaces"
+          }
+        },
+        "required": [
+          "configurationId",
+          "features",
+          "firmwareUpdatable",
+          "id",
+          "interfaces",
+          "ipAddress",
+          "macAddress",
+          "model",
+          "name",
+          "state",
+          "supported"
+        ]
+      },
+      "Adopted device overview": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "macAddress": {
+            "type": "string",
+            "example": "94:2a:6f:26:c6:ca"
+          },
+          "ipAddress": {
+            "type": "string",
+            "example": "192.168.1.55"
+          },
+          "name": {
+            "type": "string",
+            "example": "IW HD"
+          },
+          "model": {
+            "type": "string",
+            "example": "UHDIW"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "ONLINE",
+              "OFFLINE",
+              "PENDING_ADOPTION",
+              "UPDATING",
+              "GETTING_READY",
+              "ADOPTING",
+              "DELETING",
+              "CONNECTION_INTERRUPTED",
+              "ISOLATED",
+              "U5G_INCORRECT_TOPOLOGY"
+            ]
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "firmwareVersion": {
+            "type": "string",
+            "example": "6.6.55"
+          },
+          "firmwareUpdatable": {
+            "type": "boolean"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "switching",
+                "accessPoint",
+                "gateway"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "interfaces": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "ports",
+                "radios"
+              ]
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "features",
+          "firmwareUpdatable",
+          "id",
+          "interfaces",
+          "ipAddress",
+          "macAddress",
+          "model",
+          "name",
+          "state",
+          "supported"
+        ]
+      },
+      "Adopted device overview page": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Adopted device overview"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      },
+      "Device action request": {
+        "discriminator": {
+          "propertyName": "action",
+          "mapping": {
+            "RESTART": "#/components/schemas/Device restart request"
+          }
+        },
+        "properties": {
+          "action": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      },
+      "Device features": {
+        "properties": {
+          "switching": {
+            "$ref": "#/components/schemas/Switch feature overview",
+            "example": {}
+          },
+          "accessPoint": {
+            "$ref": "#/components/schemas/Access point feature overview",
+            "example": {}
+          }
+        }
+      },
+      "Device pending adoption": {
+        "properties": {
+          "macAddress": {
+            "type": "string",
+            "example": "94:2a:6f:26:c6:ca"
+          },
+          "ipAddress": {
+            "type": "string",
+            "example": "192.168.1.55"
+          },
+          "model": {
+            "type": "string",
+            "example": "UHDIW"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "ONLINE",
+              "OFFLINE",
+              "PENDING_ADOPTION",
+              "UPDATING",
+              "GETTING_READY",
+              "ADOPTING",
+              "DELETING",
+              "CONNECTION_INTERRUPTED",
+              "ISOLATED",
+              "U5G_INCORRECT_TOPOLOGY"
+            ]
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "firmwareVersion": {
+            "type": "string",
+            "example": "6.6.55"
+          },
+          "firmwareUpdatable": {
+            "type": "boolean"
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "switching",
+                "accessPoint",
+                "gateway"
+              ]
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "features",
+          "firmwareUpdatable",
+          "ipAddress",
+          "macAddress",
+          "model",
+          "state",
+          "supported"
+        ]
+      },
+      "Device pending adoption page": {
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "format": "int64",
+            "example": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "example": 25
+          },
+          "count": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1000
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Device pending adoption"
+            }
+          }
+        },
+        "required": [
+          "count",
+          "data",
+          "limit",
+          "offset",
+          "totalCount"
+        ]
+      },
+      "Device physical interfaces": {
+        "properties": {
+          "ports": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Port overview"
+            }
+          },
+          "radios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Wireless radio overview"
+            }
+          }
+        }
+      },
+      "Device restart request": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Device action request"
+          }
+        ]
+      },
+      "Device uplink interface overview": {
+        "description": "Uplink interface is device's connection to the parent device in the network topology",
+        "properties": {
+          "deviceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "deviceId"
+        ]
+      },
+      "Latest statistics for a device": {
+        "properties": {
+          "uptimeSec": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "lastHeartbeatAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nextHeartbeatAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "loadAverage1Min": {
+            "type": "number",
+            "format": "double"
+          },
+          "loadAverage5Min": {
+            "type": "number",
+            "format": "double"
+          },
+          "loadAverage15Min": {
+            "type": "number",
+            "format": "double"
+          },
+          "cpuUtilizationPct": {
+            "type": "number",
+            "format": "double"
+          },
+          "memoryUtilizationPct": {
+            "type": "number",
+            "format": "double"
+          },
+          "uplink": {
+            "$ref": "#/components/schemas/Latest statistics for a device uplink interface"
+          },
+          "interfaces": {
+            "$ref": "#/components/schemas/Latest statistics for device interfaces"
+          }
+        },
+        "required": [
+          "interfaces"
+        ]
+      },
+      "Latest statistics for a device uplink interface": {
+        "properties": {
+          "txRateBps": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rxRateBps": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Latest statistics for device interfaces": {
+        "properties": {
+          "radios": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Latest statistics for wireless radio"
+            }
+          }
+        }
+      },
+      "Latest statistics for wireless radio": {
+        "properties": {
+          "frequencyGHz": {
+            "type": "string",
+            "enum": [
+              "2.4",
+              "5",
+              "6",
+              "60"
+            ]
+          },
+          "txRetriesPct": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "frequencyGHz"
+        ]
+      },
+      "Port PoE overview": {
+        "properties": {
+          "standard": {
+            "type": "string",
+            "enum": [
+              "802.3af",
+              "802.3at",
+              "802.3bt"
+            ],
+            "example": "802.3bt"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "enum": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "example": 3
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Whether the PoE feature is enabled on the port"
+          },
+          "state": {
+            "type": "string",
+            "description": "Whether the port currently supplies power to the (connected) device.",
+            "enum": [
+              "UP",
+              "DOWN",
+              "LIMITED",
+              "UNKNOWN"
+            ]
+          }
+        },
+        "required": [
+          "enabled",
+          "standard",
+          "state",
+          "type"
+        ]
+      },
+      "Port PoE power-cycle request": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Port action request"
+          }
+        ]
+      },
+      "Port action request": {
+        "discriminator": {
+          "propertyName": "action",
+          "mapping": {
+            "POWER_CYCLE": "#/components/schemas/Port PoE power-cycle request"
+          }
+        },
+        "properties": {
+          "action": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      },
+      "Port overview": {
+        "properties": {
+          "idx": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1,
+            "minimum": 1
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "UP",
+              "DOWN",
+              "UNKNOWN"
+            ]
+          },
+          "connector": {
+            "type": "string",
+            "enum": [
+              "RJ45",
+              "SFP",
+              "SFPPLUS",
+              "SFP28",
+              "QSFP28"
+            ]
+          },
+          "maxSpeedMbps": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10000
+          },
+          "speedMbps": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1000
+          },
+          "poe": {
+            "$ref": "#/components/schemas/Port PoE overview"
+          }
+        },
+        "required": [
+          "connector",
+          "idx",
+          "maxSpeedMbps",
+          "state"
+        ]
+      },
+      "Switch feature overview": {},
+      "Wireless radio overview": {
+        "properties": {
+          "wlanStandard": {
+            "type": "string",
+            "enum": [
+              "802.11a",
+              "802.11b",
+              "802.11g",
+              "802.11n",
+              "802.11ac",
+              "802.11ax",
+              "802.11be"
+            ]
+          },
+          "frequencyGHz": {
+            "type": "string",
+            "enum": [
+              "2.4",
+              "5",
+              "6",
+              "60"
+            ]
+          },
+          "channelWidthMHz": {
+            "type": "integer",
+            "format": "int32",
+            "example": 40
+          },
+          "channel": {
+            "type": "integer",
+            "format": "int32",
+            "example": 36
+          }
+        },
+        "required": [
+          "channelWidthMHz",
+          "frequencyGHz",
+          "wlanStandard"
+        ]
+      }
+    }
+  }
+}
