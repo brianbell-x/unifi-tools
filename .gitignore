@@ -1,7 +1,6 @@
 # Credentials
 .env
 .mcp.json
-ssh-mcp/hosts.json
 
 # Python
 .venv/
@@ -10,16 +9,16 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+.pytest_cache/
 
 # Project-specific
 tmp/
 devtime.json
 CHANGELOG.md
 
-# Skills not part of this project
-.claude/skills/skill-creator/
-.claude/skills/mcp-builder/
-.claude/skills/recover-files/
+# Local-only skills (not part of this project)
+.claude/skills/
 
-# Old nested git repo
-unifi-mcp/.git/
+# Leftover venvs from the pre-1.0 layout
+unifi-mcp/
+ssh-mcp/

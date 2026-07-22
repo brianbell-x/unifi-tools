@@ -1,131 +1,106 @@
-# Unifi Agent
+# UniFi Management Tools for AI Agents
 
-AI-powered UniFi network management through [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Two MCP servers expose 56 tools that let Claude manage your entire UniFi infrastructure — devices, clients, networks, WiFi, firewall rules, VLANs, hotspot vouchers, and more. An SSH server provides direct shell access for advanced configuration beyond the API.
+**This is not an AI agent.** It's the UniFi toolset you plug into the agent you already use —
+Claude Code, Codex, Cursor, Gemini CLI, or any MCP client. One Python package exposes the
+official [UniFi Network API](https://developer.ui.com/) (plus an optional SSH escape hatch for
+what the API doesn't cover) as:
 
-## What Can It Do?
+- a **CLI** (`unifi list devices`, `unifi create wifi ...`) your agent drives through its shell — near-zero context cost, argument-level permissioning
+- an **MCP server** (`unifi mcp`) for clients without a shell — same tools, same names
+- a **skill** with battle-tested payloads and gotchas, so agents get it right on the first try
 
-Ask Claude things like:
+Built on the official Integration API with API-key auth only — no controller passwords, no
+private-API scraping.
+
+## What can it do?
+
+Ask your agent things like:
+
 - "List all devices and show me which ones have high CPU usage"
 - "Create a guest network on VLAN 50 with a captive portal"
-- "Set up an ACL rule to block IoT devices from reaching the management VLAN"
+- "Block IoT devices from reaching the management VLAN"
 - "Generate 20 hotspot vouchers for tomorrow's event, 24hr limit, 10Mbps cap"
-- "Change all AP channel widths to 160MHz" *(via SSH + MongoDB)*
-- "Show me all clients connected to the EFB network"
+- "Change all AP channel widths to 160MHz" *(via the SSH escape hatch)*
 
-## Architecture
+73 commands cover devices, clients, networks/VLANs, WiFi, zone-based firewall policies, ACLs,
+DNS policies, traffic lists, vouchers, VPN/WAN/RADIUS/DPI — the complete documented surface of
+the UniFi Network API (v10.3.58).
 
-```
-unifi-mcp/          51 tools — UniFi Integration API (Python, httpx, Pydantic)
-ssh-mcp/             5 tools — SSH command execution (Python, asyncssh)
-.claude/skills/      Claude Code skill with example payloads and gotchas
-```
+## Setup
 
-## Prerequisites
+### 1. What you need
 
-- [Python 3.11+](https://www.python.org/downloads/)
-- [uv](https://docs.astral.sh/uv/getting-started/installation/) package manager
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI
-- UniFi Network controller with [Integration API](https://help.ui.com/hc/en-us/articles/32910498498583-UniFi-Integration-API) enabled
-- API key from **UniFi Network > Settings > API**
+| | Where to get it |
+|---|---|
+| **Controller URL** (required) | Your gateway's address, e.g. `https://192.168.1.1`. It's the address you open the UniFi web UI at. Self-hosted UniFi OS Server uses port `11443`. |
+| **API key** (required) | UniFi web UI → **Settings → Control Plane → Integrations → Create API Key**. It is shown **once** — copy it immediately. Needs a UniFi OS console (Dream Machine, Cloud Gateway, CloudKey) or UniFi OS Server; legacy self-hosted controllers don't support API keys. |
+| Site ID (optional) | Skip it — single-site controllers auto-resolve. Multi-site: pick from `unifi list sites`. |
+| Gateway SSH password (optional) | Only for the [SSH escape hatch](#ssh-escape-hatch-optional). UniFi web UI → **Settings → System → Advanced → Device SSH Authentication** (enable + set a password). |
 
-## Quick Start
+### 2. Where it goes — one place
 
-**1. Clone and install dependencies:**
-```bash
-git clone https://github.com/brianbell-x/Unifi-Agent.git
-cd Unifi-Agent
-cd unifi-mcp && uv sync && cd ..
-cd ssh-mcp && uv sync && cd ..
-```
+All configuration lives in **one file**, written for you by `unifi init`:
 
-**2. Configure credentials:**
-```bash
-cp .env.sample .env
-cp .mcp.json.sample .mcp.json
-cp ssh-mcp/hosts.json.sample ssh-mcp/hosts.json
-```
-
-Edit `.env` with your controller URL, API key, and site ID:
-```env
-UNIFI_HOST=https://192.168.1.1
-UNIFI_API_KEY=your-api-key-here
-UNIFI_SITE_ID=your-site-id
-```
-
-Edit `.mcp.json` with the same values and adjust paths if needed.
-
-Edit `ssh-mcp/hosts.json` with your SSH credentials.
-
-**3. Find your Site ID:**
-```bash
-# Start Claude Code from the project directory
-claude
-# Then ask: "List all sites"
-```
-
-**4. Start using it:**
-```bash
-claude
-```
-
-Claude will automatically connect to both MCP servers and have access to all 56 tools.
-
-## Tools
-
-### UniFi MCP (51 tools)
-
-| Category | Tools | Operations |
-|----------|-------|------------|
-| **Info & Sites** | `get_app_info`, `list_sites` | Controller version, managed sites |
-| **Devices** | `list_devices`, `get_device`, `get_device_stats`, `restart_device`, `power_cycle_port`, `list_pending_devices` | Monitor, reboot, PoE cycle |
-| **Clients** | `list_clients`, `get_client`, `authorize_guest`, `unauthorize_guest` | Connected clients, guest portal |
-| **Networks** | `list_networks`, `get_network`, `create_network`, `update_network`, `delete_network`, `get_network_references` | VLAN/subnet CRUD |
-| **WiFi** | `list_wifi`, `get_wifi`, `create_wifi`, `update_wifi`, `delete_wifi` | SSID CRUD |
-| **Vouchers** | `list_vouchers`, `get_voucher`, `create_vouchers`, `delete_voucher`, `bulk_delete_vouchers` | Hotspot passes |
-| **Firewall** | `list_firewall_zones`, `get_firewall_zone`, `create_firewall_zone`, `update_firewall_zone`, `delete_firewall_zone` | Zone management |
-| **ACL Rules** | `list_acl_rules`, `get_acl_rule`, `create_acl_rule`, `update_acl_rule`, `delete_acl_rule` | Traffic filtering |
-| **Traffic Lists** | `list_traffic_matching_lists`, `get_traffic_matching_list`, `create_traffic_matching_list`, `update_traffic_matching_list`, `delete_traffic_matching_list` | Port/IP groups |
-| **Supporting** | `list_wans`, `list_vpn_tunnels`, `list_vpn_servers`, `list_radius_profiles`, `list_device_tags`, `list_dpi_categories`, `list_dpi_applications`, `list_countries` | Read-only |
-
-### SSH MCP (5 tools)
-
-| Tool | Description |
-|------|-------------|
-| `ssh_list_hosts` | List configured SSH hosts (no passwords shown) |
-| `ssh_execute` | One-shot command on a remote host |
-| `ssh_session_start` | Open persistent session (30min timeout) |
-| `ssh_session_command` | Run command in session (preserves cwd) |
-| `ssh_session_close` | Close a session |
-
-## Advanced: Direct Device Access
-
-The Integration API doesn't expose everything. For radio configuration, channel widths, min-RSSI thresholds, and other low-level settings, the SSH MCP server connects directly to the UDM-Pro's MongoDB:
+- Windows: `%APPDATA%\unifi-tools\config.json`
+- macOS/Linux: `~/.config/unifi-tools/config.json`
 
 ```bash
-# Example: Change 5GHz channel width to 160MHz on all APs
-mongo --port 27117 ace --eval '
-  db.device.updateMany(
-    {"model": "U7P"},
-    {$set: {"radio_table.$[r].ht": "160"}},
-    {arrayFilters: [{"r.radio": "na"}]}
-  )
-'
-# Then force-provision to apply
-db.task.insertMany(
-  db.device.find({"model":"U7P"}, {mac:1, _id:0}).toArray().map(d => ({
-    mac: d.mac, type: "cmd", cmd: "force-provision", _id: new ObjectId()
-  }))
-)
+# install the CLI (only prerequisite is uv, which auto-provisions Python —
+# get it with `winget install astral-sh.uv` or `curl -LsSf https://astral.sh/uv/install.sh | sh`)
+uv tool install unifi-tools
+
+unifi init            # prompts for the values above and writes the config file
+unifi get app info    # verify — should print your controller version
 ```
 
-## Key Gotchas
+Non-interactive: `unifi init --host https://192.168.1.1 --api-key XXXX [--site-id ID] [--ssh-password PW | --ssh-key ~/.ssh/id_ed25519]`.
 
-- **Pagination**: List endpoints return max 25 items (vouchers: 100). No offset/limit params — first page only.
-- **WiFi/Network creation**: The API requires many more fields than the schema suggests. The skill file (`.claude/skills/unifi/SKILL.md`) has complete working payloads.
-- **ACL rule ordering**: Lower `index` = higher priority (first-match-wins).
-- **Bulk delete filter syntax**: Values with spaces need single quotes: `name.eq('My Thing')`.
-- **SSL**: The server disables SSL verification for self-signed controller certificates.
+Environment variables with the same names (`UNIFI_HOST`, `UNIFI_API_KEY`, `UNIFI_SITE_ID`, `UNIFI_SSH_KEY`, `UNIFI_SSH_PASSWORD`, `UNIFI_READ_ONLY`, `UNIFI_VERIFY_SSL`) override the file — useful for MCP client env blocks and read-only sessions. There is no other config location.
+
+### 3. Connect your agent
+
+| Agent | Setup |
+|-------|-------|
+| **Claude Code** | `/plugin marketplace add brianbell-x/Unifi-Agent` then `/plugin install unifi@unifi-tools` — installs the skill; the agent uses the CLI |
+| **Other shell agents** (Codex, Cursor, Gemini CLI...) | Copy `skills/unifi/` into your agent's skills directory (or `npx skills add brianbell-x/Unifi-Agent`) |
+| **MCP clients without a shell** (Claude Desktop...) | `{"command": "uvx", "args": ["unifi-tools", "mcp"]}` — config comes from the same file, or pass an `env` block to override |
+
+That's it. Run `unifi` for the full command list.
+
+## Safety
+
+- **Destructive commands require `--yes`** (delete/remove/restart/power-cycle/mongo writes).
+- **`UNIFI_READ_ONLY=true`** blocks every write at the API layer — hand a read-only toolset to any agent.
+- Reads and writes are prefix-separable for agent permission rules: allow `unifi list *` and `unifi get *`, prompt on the rest.
+- **`UNIFI_VERIFY_SSL=true`** enforces TLS verification (off by default — UniFi consoles ship self-signed certificates).
+
+## SSH escape hatch (optional)
+
+The official API doesn't expose radio config (channel width, TX power, min-RSSI), per-port
+profiles, or controller settings. Setting `UNIFI_SSH_KEY` (or `UNIFI_SSH_PASSWORD`) enables
+three extra primitives against the gateway — `unifi ssh exec`, `unifi mongo read|write`,
+`unifi provision` — used as: resolve via API → write MongoDB → force-provision → verify via API.
+
+```bash
+unifi mongo write "db.device.updateMany({model:'U7P'}, {\$set:{'radio_table.\$[r].ht':'160'}}, {arrayFilters:[{'r.radio':'na'}]})" --yes
+unifi provision aa:bb:cc:dd:ee:01 --yes
+```
+
+MongoDB writes are unsupported by Ubiquiti and schema-drift across firmware — the skill teaches
+agents to never use SSH for anything the API covers.
+
+## Development
+
+```bash
+git clone https://github.com/brianbell-x/Unifi-Agent && cd Unifi-Agent
+uv run pytest          # offline test suite (parity, gates, mocked API)
+uv run unifi --help
+```
+
+`src/unifi_tools/`: `core.py` (config, registry, API client), `api.py` (73 API tools),
+`ssh.py` (gateway escape hatch), `cli.py` (CLI face + `mcp` subcommand). Every tool function
+registers as both a CLI command and an MCP tool — the test suite asserts the two faces never drift.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE). Not affiliated with or endorsed by Ubiquiti Inc.

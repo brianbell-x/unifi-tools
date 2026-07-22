@@ -1,16 +1,21 @@
-# Unifi Agent
+# UniFi Management Tools for AI Agents
 
-Two MCP servers that give Claude full control over UniFi Network infrastructure.
+One Python package (`unifi-tools`) exposing the official UniFi Network Integration API and an
+optional gateway-SSH escape hatch as both a CLI (`unifi ...`) and an MCP server (`unifi mcp`).
+Not an agent — tool extensions for agents.
 
-## Architecture
+## Layout
 
-- **unifi-mcp/** — 51 tools wrapping the UniFi Integration API (devices, clients, networks, WiFi, ACLs, firewall zones, vouchers, VPNs, DPI)
-- **ssh-mcp/** — 5 tools for SSH command execution on network devices (persistent sessions, working directory tracking)
-- **.claude/skills/unifi/** — Claude Code skill with battle-tested payloads and gotchas
+- `src/unifi_tools/core.py` — config (env > `unifi init` file), FastMCP instance, tool registry, API client
+- `src/unifi_tools/api.py` — 73 tools, complete documented surface of the Network API v10.3.58
+- `src/unifi_tools/ssh.py` — `ssh exec` / `mongo read|write` / `provision`, enabled only when `UNIFI_SSH_KEY`/`UNIFI_SSH_PASSWORD` is set
+- `src/unifi_tools/cli.py` — generic dispatcher: `unifi_list_devices` ⇄ `unifi list devices`; destructive commands need `--yes`
+- `skills/unifi/` — the agent skill (read `skills/unifi/SKILL.md` before using the tools)
+- `.claude-plugin/` — this repo is its own Claude Code plugin marketplace (plugin ships the skill)
 
-## SSH Access to UDM-Pro
+## Rules
 
-- SSH MCP host `udm` connects to the Dream Machine Pro as root
-- MongoDB at `mongo --port 27117 ace` has full device/site config
-- Use this for settings the Integration API doesn't expose (radio config, channel width, etc.)
-- After DB changes, queue provisioning: `db.task.insertMany(...)` with `{mac, type:"cmd", cmd:"force-provision"}`
+- Every tool registers as both CLI command and MCP tool via `@tool()` in core.py; `uv run pytest` asserts parity — run it after any tool change.
+- API ground truth is developer.ui.com (currently v10.3.58), not this codebase. Verify against docs before changing payloads.
+- SSH/MongoDB is only for what the API doesn't expose (radio config, port profiles, settings). After DB writes, force-provision (`unifi provision <macs>`).
+- Local dev MCP config lives in untracked `.mcp.json`; credentials in untracked `.env` / the `unifi init` config file.

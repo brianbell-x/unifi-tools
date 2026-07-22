@@ -1,0 +1,32 @@
+[project]
+name = "unifi-tools"
+version = "1.0.0"
+description = "UniFi Management Tools for AI Agents — the official UniFi Network API and gateway SSH as one CLI and MCP server"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = ["mcp[cli]", "httpx", "pydantic", "asyncssh"]
+keywords = ["unifi", "ubiquiti", "mcp", "cli", "ai-agents", "network-automation"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: System Administrators",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: System :: Networking",
+]
+
+[project.urls]
+Homepage = "https://github.com/brianbell-x/Unifi-Agent"
+
+[project.scripts]
+unifi = "unifi_tools.cli:main"
+unifi-tools = "unifi_tools.cli:main"
+
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/unifi_tools"]
