@@ -89,6 +89,15 @@ unifi provision aa:bb:cc:dd:ee:01 --yes
 MongoDB writes are unsupported by Ubiquiti and schema-drift across firmware — the skill teaches
 agents to never use SSH for anything the API covers.
 
+## Custom integrations
+
+Paid integration work can be scoped for a specific UniFi workflow or another documented API.
+Python CLI and MCP interfaces, source code, tests, and setup instructions can be included.
+
+Project inquiries can be sent to [me@brianbell.xyz](mailto:me@brianbell.xyz) with the API
+documentation and a short example of the workflow. Scope, price, test access, and acceptance
+checks are agreed before work begins. AI-assisted development is used.
+
 ## Development
 
 ```bash
